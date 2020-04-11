@@ -17,7 +17,7 @@ class PatientController extends BaseController
   		$diagnosis = $_POST['diagnosis'];
       $birthday = $_POST['birthday'];
   		$gender = $_POST['gender'];
-  		$addpatient = \DB::SELECT("call sp_addpatient(?,?,?,?,?)",[$patientfname, $patientmname, $patientlname, $diagnosis, $age]);
+  		$addpatient = \DB::SELECT("call sp_addpatient(?,?,?,?,?)",[$patientfname, $patientmname, $patientlname, $diagnosis, $birthday,$gender]);
 		$output = json_encode(array('addpatient_report' => $addpatient ));
 		echo $output;
     
