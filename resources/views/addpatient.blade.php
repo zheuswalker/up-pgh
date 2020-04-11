@@ -344,14 +344,14 @@
                         <input type="date" id="input-username" name="birthday" class="form-control" placeholder="Username" value="lucky.jesse">
                       </div>
                     </div>
-                     <div class="col-lg-6">
+                    
+                  </div>
+                   <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-username">Gender</label>
-                        <input type="date" id="input-username" name="gender" class="form-control" placeholder="Username" value="lucky.jesse">
+                        <input type="textarea" id="input-username" name="gender" class="form-control" placeholder="Username" value="lucky.jesse">
                       </div>
                     </div>
-                  </div>
-                  
                 </div>
                 <hr class="my-4" />
                 <!-- Address -->
