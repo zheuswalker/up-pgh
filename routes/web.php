@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('sample');
+    return view('addpatient');
 });
 Route::get('/addpatient', function () {
     return view('addpatient');
