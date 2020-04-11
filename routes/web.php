@@ -22,3 +22,4 @@ Route::get('/addpatient', function () {
 Route::post('/addpatientapi','PatientController@addPatient');
 Route::get('/Patient/{patientid}','PatientController@patientDetails');
 Route::get('/patientQue','PatientController@patientQue');
+Route::post('/Observation','ObservationController@createObservation');
