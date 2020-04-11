@@ -340,8 +340,14 @@
                     </div>
                      <div class="col-lg-6">
                       <div class="form-group">
-                        <label class="form-control-label" for="input-username">Age</label>
-                        <input type="text" id="input-username" name="age" class="form-control" placeholder="Username" value="lucky.jesse">
+                        <label class="form-control-label" for="input-username">Birthday</label>
+                        <input type="date" id="input-username" name="birthday" class="form-control" placeholder="Username" value="lucky.jesse">
+                      </div>
+                    </div>
+                     <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-username">Gender</label>
+                        <input type="date" id="input-username" name="gender" class="form-control" placeholder="Username" value="lucky.jesse">
                       </div>
                     </div>
                   </div>
