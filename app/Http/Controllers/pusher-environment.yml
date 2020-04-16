@@ -1,0 +1,7 @@
+version: '2'
+services:
+  pusher-environment:
+    environment:
+      PUSHER_APP_ID: 111111
+      PUSHER_APP_KEY: 22222222222222222222
+      PUSHER_APP_SECRET: 33333333333333333333

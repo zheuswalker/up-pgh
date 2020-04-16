@@ -600,7 +600,7 @@
   <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
   <!-- Argon JS -->
   <script src="../assets/js/argon.js?v=1.2.0"></script>
-  <script src="http://127.0.0.1:8000/js/pusher.min.js"></script>
+  <script src="http://206.189.87.169/js/pusher.min.js"></script>
   <script>
 
     // Enable pusher logging - don't include this in production
@@ -613,9 +613,9 @@
         cluster: 'eu',
         // options below are needed for pusher local dev server
         encrypted: false,
-        httpHost: '127.0.0.1',
+        httpHost: '206.189.87.169',
         httpPort: '57003',
-        wsHost: '127.0.0.1',
+        wsHost: '206.189.87.169',
         wsPort: '57004'
     }
     var pusher = new Pusher(pusherAppKey, pusherOptions);
