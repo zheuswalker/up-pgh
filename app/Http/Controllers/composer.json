@@ -1,0 +1,12 @@
+{
+    "name": "oliverlundquist/pusher-local-dev-server-article",
+    "authors": [
+        {
+            "name": "Oliver Lundquist",
+            "email": "mail@oliverlundquist.com"
+        }
+    ],
+    "require": {
+        "pusher/pusher-php-server": "^3.0"
+    }
+}
