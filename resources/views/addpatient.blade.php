@@ -314,16 +314,18 @@
                 </div>
               </div>
             </div>
+
             <div class="card-body" id="addtenantmodal">
               <form action={{url('addpatientapi')}} method="post">  {{ csrf_field() }}
                 <h6 class="heading-small text-muted mb-4 pl-lg-4">User information</h6>
                 <div class="pl-lg-4">
-                 
+                   <div id="notification">asd</div>
                   <div class="row">
                     <div class="col-lg-6">
                       <div class="form-group">
+
                         <label class="form-control-label" for="input-first-name">First name</label>
-                        <input type="text" id="companyname" name="patientfname"  class="form-control" placeholder="First name" value="Lucky">
+                        <input type="text" id="companyname" name="patientfname"  class="form-control" placeholder="First name" value="meow">
                       </div>
                     </div>
                      <div class="col-lg-6">
@@ -598,6 +600,38 @@
   <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
   <!-- Argon JS -->
   <script src="../assets/js/argon.js?v=1.2.0"></script>
+  <script src="http://127.0.0.1:8000/js/pusher.min.js"></script>
+  <script>
+
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+
+    var channel       = 'mya';
+    var event         = 'mya';
+    var pusherAppKey  = '22222222222222222222';
+    var pusherOptions = {
+        cluster: 'eu',
+        // options below are needed for pusher local dev server
+        encrypted: false,
+        httpHost: '127.0.0.1',
+        httpPort: '57003',
+        wsHost: '127.0.0.1',
+        wsPort: '57004'
+    }
+    var pusher = new Pusher(pusherAppKey, pusherOptions);
+
+    // start listening for events
+    pusher
+        .subscribe('mya')
+        .bind(event, function (data) {
+for(key in data) {
+         var value = data[key];
+        console.log(data);
+        document.getElementById("notification").innerHTML =  data;
+    
+}
+        });
+  </script>
 </body>
 
 </html>

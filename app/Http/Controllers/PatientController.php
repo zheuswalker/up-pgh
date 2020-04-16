@@ -8,8 +8,18 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use DB;
 
+
 class PatientController extends BaseController
 {
+
+    public function getPatientObservation(){
+       
+
+      $patient_observation = \DB::SELECT("SELECT * FROM t_patient_observation limit 1");
+
+   echo json_encode($patient_observation);
+
+    }
   	public function addPatient(){
   		$patientfname = $_POST['patientfname'];
   		$patientmname = $_POST['patientmname'];

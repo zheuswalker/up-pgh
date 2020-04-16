@@ -17,9 +17,18 @@ Route::get('/', function () {
     return view('addpatient');
 });
 Route::get('/addpatient', function () {
+
     return view('addpatient');
 });
 Route::post('/addpatientapi','PatientController@addPatient');
 Route::get('/Patient/{patientid}','PatientController@patientDetails');
 Route::get('/patientQue','PatientController@patientQue');
 Route::post('/Observation','ObservationController@createObservation');
+Route::get('/t', function () {
+
+    event(new \App\Events\SendMessage());
+    dd('Event Run Successfully.');
+
+});
+
+Route::get('/getPatientObservation','PatientController@getPatientObservation');
