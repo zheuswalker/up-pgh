@@ -14,6 +14,11 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         //
         'Observation',
-        'getPatientObservation'
+        'getPatientObservation',
+        'addpatientapi',
+        'addPatientConfig',
+        'patientQue',
+        'Patient/{patientid}',
+        'addPatientData'
     ];
 }
