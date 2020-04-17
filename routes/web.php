@@ -22,8 +22,8 @@ Route::get('/addpatient', function () {
 });
 Route::post('/addpatientapi','PatientController@addPatient');
 Route::get('/Patient/{patientid}','PatientController@patientDetails');
-Route::get('/addPatientConfig','PatientController@addPatientConfig');
-Route::get('/addPatientData','PatientController@addPatientData');
+Route::post('/addPatientConfig','PatientController@addPatientConfig');
+Route::post('/addPatientData','PatientController@addPatientData');
 Route::get('/patientQue','PatientController@patientQue');
 Route::post('/Observation','ObservationController@createObservation');
 Route::get('/t', function () {
