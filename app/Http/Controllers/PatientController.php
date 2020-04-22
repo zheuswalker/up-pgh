@@ -48,7 +48,12 @@ class PatientController extends BaseController
     
   	}
 
-  	public function addPatientConfig(){
+  	public function getpatientlist(){
+      $getpatientlist_report = \DB::SELECT("call sp_getpatientlist()");
+    $output = json_encode(array('getpatientlist_report' => $getpatientlist_report ));
+    echo $output;
+    }
+    public function addPatientConfig(){
   		$patientid = $_POST['patientid'];
   		$respiration_rate = $_POST['respiration_rate'];
   		$oxygen_level = $_POST['oxygen_level'];

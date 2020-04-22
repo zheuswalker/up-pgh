@@ -32,5 +32,5 @@ Route::get('/t', function () {
     dd('Event Run Successfully.');
 
 });
-
+Route::get('/getpatientlist','PatientController@getpatientlist');
 Route::get('/getPatientObservation','PatientController@getPatientObservation');
