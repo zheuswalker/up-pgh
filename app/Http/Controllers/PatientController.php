@@ -48,6 +48,14 @@ class PatientController extends BaseController
     
   	}
 
+public function deletePatient(){
+  $patientid = $_POST['patientid'];
+  $deletepatient = \DB::SELECT("call sp_deletepatient(?)",[$patientid]);
+    $output = json_encode(array('deletepatient_report' => $deletepatient ));
+    echo $output;
+    
+}
+
 public function updatePatient(){
       $patientfname = $_POST['patientfname'];
       $patientmname = $_POST['patientmname'];

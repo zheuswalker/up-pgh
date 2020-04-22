@@ -20,6 +20,7 @@ class VerifyCsrfToken extends Middleware
         'patientQue',
         'Patient/{patientid}',
         'addPatientData',
-        'updatePatient'
+        'updatePatient',
+        'deletePatient'
     ];
 }

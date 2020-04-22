@@ -39,3 +39,4 @@ Route::get('/t', function () {
 Route::get('/getpatientlist','PatientController@getpatientlist');
 Route::get('/getPatientObservation','PatientController@getPatientObservation');
 Route::post('/updatePatient','PatientController@updatePatient');
+Route::post('/deletePatient','PatientController@deletePatient');
