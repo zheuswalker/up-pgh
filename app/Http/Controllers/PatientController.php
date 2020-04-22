@@ -15,7 +15,7 @@ class PatientController extends BaseController
     public function getPatientObservation(){
        
 
-      $patient_observation = \DB::SELECT("SELECT * FROM t_patient_observation limit 1");
+      $patient_observation = \DB::SELECT("call sp_getPatientObservations()");
 
    echo json_encode($patient_observation);
 
