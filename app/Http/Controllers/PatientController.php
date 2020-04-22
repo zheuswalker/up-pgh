@@ -38,8 +38,11 @@ class PatientController extends BaseController
       $philhealth = $_POST['philhealth'];
       $hmo = $_POST['hmo'];
       $admission = $_POST['admission'];
-  		$ward = $_POST['ward'];
-  		$addpatient = \DB::SELECT("call sp_addpatient(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",[$patientfname, $patientmname, $patientlname, $birthday,$gender,$age, $covid19, $remarks, $address, $city,$country,$contact, $email, $sss_gsis, $philhealth, $hmo,$admission,$ward]);
+      $ward = $_POST['ward'];
+      $emcontactname = $_POST['emcontactname'];
+      $emcontactnumber = $_POST['emcontactnumber'];
+  		$emrelationship = $_POST['emrelationship'];
+  		$addpatient = \DB::SELECT("call sp_addpatient(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",[$patientfname, $patientmname, $patientlname, $birthday,$gender,$age, $covid19, $remarks, $address, $city,$country,$contact, $email, $sss_gsis, $philhealth, $hmo,$admission,$ward,$emcontactname,$emcontactnumber,$emrelationship]);
 		$output = json_encode(array('addpatient_report' => $addpatient ));
 		echo $output;
     
