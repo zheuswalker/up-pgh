@@ -48,6 +48,35 @@ class PatientController extends BaseController
     
   	}
 
+public function updatePatient(){
+      $patientfname = $_POST['patientfname'];
+      $patientmname = $_POST['patientmname'];
+      $patientlname = $_POST['patientlname'];
+      $birthday = $_POST['birthday'];
+      $gender = $_POST['gender'];
+      $age = $_POST['age'];
+      $covid19 = $_POST['covid19'];
+      $remarks = $_POST['remarks'];
+      $address = $_POST['address'];
+      $city = $_POST['city'];
+      $country = $_POST['country'];
+      $contact = $_POST['contact'];
+      $email = $_POST['email'];
+      $sss_gsis = $_POST['sss_gsis'];
+      $philhealth = $_POST['philhealth'];
+      $hmo = $_POST['hmo'];
+      $admission = $_POST['admission'];
+      $ward = $_POST['ward'];
+      $emcontactname = $_POST['emcontactname'];
+      $emcontactnumber = $_POST['emcontactnumber'];
+      $emrelationship = $_POST['emrelationship'];
+      $patientid = $_POST['patientid'];
+      $updatepatient = \DB::SELECT("call  sp_updatepatient(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",[$patientfname, $patientmname, $patientlname, $birthday,$gender,$age, $covid19, $remarks, $address, $city,$country,$contact, $email, $sss_gsis, $philhealth, $hmo,$admission,$ward,$emcontactname,$emcontactnumber,$emrelationship,$patientid]);
+    $output = json_encode(array('updatepatient_report' => $updatepatient ));
+    echo $output;
+    
+    }
+
   	public function getpatientlist(){
       $getpatientlist_report = \DB::SELECT("call sp_getpatientlist()");
     $output = json_encode(array('getpatientlist_report' => $getpatientlist_report ));
