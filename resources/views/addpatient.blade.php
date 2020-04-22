@@ -15,7 +15,6 @@
 -->
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -33,14 +32,14 @@
   <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
 </head>
 
-<body>
+<body class="g-sidenav-show g-sidenav-pinned" style="">
   <!-- Sidenav -->
   <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
-    <div class="scrollbar-inner">
+    <div class="scroll-wrapper scrollbar-inner" style="position: relative;"><div class="scrollbar-inner scroll-content" style="height: 286px; margin-bottom: -12px; margin-right: -12px; max-height: none;">
       <!-- Brand -->
       <div class="sidenav-header  align-items-center">
         <a class="navbar-brand" href="javascript:void(0)">
-          <img src="../assets/img/brand/blue.png" class="navbar-brand-img" alt="...">
+             <img src="../assets/img/brand/blue.png" class="navbar-brand-img" alt="...">
         </a>
       </div>
       <div class="navbar-inner">
@@ -49,7 +48,7 @@
           <!-- Nav items -->
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="dashboard.html">
+              <a class="nav-link" href="http://206.189.87.169/dashboard.html">
                 <i class="ni ni-tv-2 text-primary"></i>
                 <span class="nav-link-text">Dashboard</span>
               </a>
@@ -58,7 +57,7 @@
           </ul>
         </div>
       </div>
-    </div>
+    </div><div class="scroll-element scroll-x"><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar" style="width: 0px;"></div></div></div><div class="scroll-element scroll-y"><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar" style="height: 0px;"></div></div></div></div>
   </nav>
   <!-- Main content -->
   <div class="main-content" id="panel">
@@ -84,7 +83,7 @@
           <ul class="navbar-nav align-items-center  ml-md-auto ">
             <li class="nav-item d-xl-none">
               <!-- Sidenav toggler -->
-              <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
+              <div class="pr-3 sidenav-toggler sidenav-toggler-dark active" data-action="sidenav-pin" data-target="#sidenav-main">
                 <div class="sidenav-toggler-inner">
                   <i class="sidenav-toggler-line"></i>
                   <i class="sidenav-toggler-line"></i>
@@ -112,7 +111,7 @@
                     <div class="row align-items-center">
                       <div class="col-auto">
                         <!-- Avatar -->
-                        <img alt="Image placeholder" src="../assets/img/theme/team-1.jpg" class="avatar rounded-circle">
+                        <img alt="Image placeholder" src="Argon%20Dashboard%20-%20Free%20Dashboard%20for%20Bootstrap%204_files/team-1.jpg" class="avatar rounded-circle">
                       </div>
                       <div class="col ml--2">
                         <div class="d-flex justify-content-between align-items-center">
@@ -131,7 +130,7 @@
                     <div class="row align-items-center">
                       <div class="col-auto">
                         <!-- Avatar -->
-                        <img alt="Image placeholder" src="../assets/img/theme/team-2.jpg" class="avatar rounded-circle">
+                        <img alt="Image placeholder" src="Argon%20Dashboard%20-%20Free%20Dashboard%20for%20Bootstrap%204_files/team-2.jpg" class="avatar rounded-circle">
                       </div>
                       <div class="col ml--2">
                         <div class="d-flex justify-content-between align-items-center">
@@ -150,7 +149,7 @@
                     <div class="row align-items-center">
                       <div class="col-auto">
                         <!-- Avatar -->
-                        <img alt="Image placeholder" src="../assets/img/theme/team-3.jpg" class="avatar rounded-circle">
+                        <img alt="Image placeholder" src="Argon%20Dashboard%20-%20Free%20Dashboard%20for%20Bootstrap%204_files/team-3.jpg" class="avatar rounded-circle">
                       </div>
                       <div class="col ml--2">
                         <div class="d-flex justify-content-between align-items-center">
@@ -169,7 +168,7 @@
                     <div class="row align-items-center">
                       <div class="col-auto">
                         <!-- Avatar -->
-                        <img alt="Image placeholder" src="../assets/img/theme/team-4.jpg" class="avatar rounded-circle">
+                        <img alt="Image placeholder" src="Argon%20Dashboard%20-%20Free%20Dashboard%20for%20Bootstrap%204_files/team-4.jpg" class="avatar rounded-circle">
                       </div>
                       <div class="col ml--2">
                         <div class="d-flex justify-content-between align-items-center">
@@ -188,7 +187,7 @@
                     <div class="row align-items-center">
                       <div class="col-auto">
                         <!-- Avatar -->
-                        <img alt="Image placeholder" src="../assets/img/theme/team-5.jpg" class="avatar rounded-circle">
+                        <img alt="Image placeholder" src="Argon%20Dashboard%20-%20Free%20Dashboard%20for%20Bootstrap%204_files/team-5.jpg" class="avatar rounded-circle">
                       </div>
                       <div class="col ml--2">
                         <div class="d-flex justify-content-between align-items-center">
@@ -259,7 +258,7 @@
               <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <div class="media align-items-center">
                   <span class="avatar avatar-sm rounded-circle">
-                    <img alt="Image placeholder" src="../assets/img/theme/team-4.jpg">
+                    <img alt="Image placeholder" src="Argon%20Dashboard%20-%20Free%20Dashboard%20for%20Bootstrap%204_files/team-4.jpg">
                   </span>
                   <div class="media-body  ml-2  d-none d-lg-block">
                     <span class="mb-0 text-sm  font-weight-bold">John Snow</span>
@@ -306,26 +305,27 @@
         <div class="col-xl-12 order-xl-1">
           <div class="card">
             <div class="card-header">
-              <div class="row align-items-center">
-                <div class="col-8">
+             <div class="row align-items-center">
+                <div class="col-10">
                   <h3 class="mb-0">Add Patient </h3>
                 </div>
-                <div class="col-4 text-right">
+  <input type="textarea" id="input-username" name="ward" class="form-control col-2" placeholder="Ward ID" value="">
+                <div>
                 </div>
               </div>
             </div>
 
             <div class="card-body" id="addtenantmodal">
-              <form action={{url('addpatientapi')}} method="post">  {{ csrf_field() }}
+              <form action="http://206.189.87.169/addpatientapi" method="post">  <input type="hidden" name="_token" value="rKYitYtW4ZCdevhwdrUFK8Mmj39Cu7R7HIQNNqQv">
                 <h6 class="heading-small text-muted mb-4 pl-lg-4">User information</h6>
                 <div class="pl-lg-4">
-                   <div id="notification">asd</div>
+                   <div id="notification"></div>
                   <div class="row">
                     <div class="col-lg-6">
                       <div class="form-group">
 
                         <label class="form-control-label" for="input-first-name">First name</label>
-                        <input type="text" id="companyname" name="patientfname"  class="form-control" placeholder="First name" value="meow">
+                        <input type="text" id="companyname" name="patientfname" class="form-control" placeholder="First name" value="meow">
                       </div>
                     </div>
                      <div class="col-lg-6">
@@ -343,21 +343,125 @@
                      <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-username">Birthday</label>
-                        <input type="date" id="input-username" name="birthday" class="form-control" placeholder="Username" value="lucky.jesse">
+                        <input type="date" id="input-username" name="birthday" class="form-control" placeholder="Username" value="2020-04-06">
                       </div>
                     </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-2">
                       <div class="form-group">
                         <label class="form-control-label" for="input-username">Gender</label>
                         <input type="textarea" id="input-username" name="gender" class="form-control" placeholder="Username" value="male">
+                      </div>
+                    </div><div class="col-lg-2">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-username">Age</label>
+                        <input type="textarea" class="form-control" name="age" id="input-number" placeholder="Age">
+                      </div>
+                    </div><div class="col-lg-2">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-username">Covid-19 Case</label>
+                        <input type="textarea" class="form-control" name="covid19" id="input-number" placeholder="">
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-username">Date of Admission</label>
+                        <input type="date" id="input-username" name="admission" class="form-control" placeholder="Username" value="2020-04-06">
                       </div>
                     </div>
                   </div>
                
                 </div>
 
-                <hr class="my-4" />
-                <!-- Address -->
+                
+                <hr class="my-4"><h6 class="heading-small text-muted mb-4 pl-lg-4">Contact Information</h6><div class="pl-lg-4">
+                   <div id="notification"></div>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+
+                        <label class="form-control-label" for="input-first-name">Address</label>
+                        <input type="text" id="companyname" name="address" class="form-control" placeholder="First name" value="meow">
+                      </div>
+                    </div>
+                     <div class="col-lg-3">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-first-name">Country/State</label>
+                        <input type="text" id="input-first-name" name="country" class="form-control" placeholder="" value="Philippines">
+                      </div>
+                    </div>
+                    <div class="col-lg-3">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-last-name">City</label>
+                        <input type="text" id="input-last-name" class="form-control" name="city" placeholder="" value="Quezon City">
+                      </div>
+                    </div>
+                     <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-username">Contact Number</label>
+                        <input id="input-username" name="contact" class="form-control" type="text" placeholder="+09123123">
+                      </div>
+                    </div>
+                        <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-username">Email Address</label>
+                        <input type="textarea" id="input-username" name="email" class="form-control" placeholder="myemail@email.com">
+                      </div>
+                    </div>
+                  </div>
+               
+                </div><hr class="my-4"><h6 class="heading-small text-muted mb-4 pl-lg-4">Person to contact in case of Emergency</h6><div class="pl-lg-4">
+                   <div id="notification"></div>
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <div class="form-group">
+
+                        <label class="form-control-label" for="input-first-name">Name</label>
+                        <input type="text" id="companyname" name="patientfname" class="form-control" placeholder="Full Name" value="Clay">
+                      </div>
+                    </div>
+                     
+                    
+                     <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-username">Contact Number</label>
+                        <input id="input-username" name="birthday" class="form-control" type="text" placeholder="+09123123">
+                      </div>
+                    </div>
+                        <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-username">Relationship</label>
+                        <input type="textarea" id="input-username" name="gender" class="form-control" placeholder="myemail@email.com">
+                      </div>
+                    </div>
+                  </div>
+               
+                </div><hr class="my-4"><h6 class="heading-small text-muted mb-4 pl-lg-4">Other information</h6><div class="pl-lg-4">
+                   <div id="notification"></div>
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <div class="form-group">
+
+                        <label class="form-control-label" for="input-first-name">SSS/GSIS no</label>
+                        <input type="text" id="companyname" name="sss_gsis" class="form-control" placeholder="123123">
+                      </div>
+                    </div>
+                     
+                    
+                     <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-username">Philhealth no</label>
+                        <input id="input-username" name="philhealth" class="form-control" type="text" placeholder="133111">
+                      </div>
+                    </div>
+                        <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-username">HMO</label>
+                        <input type="textarea" id="input-username" name="hmo" class="form-control" placeholder="">
+                      </div>
+                    </div>
+                  </div>
+               
+                </div><!-- Address -->
                 <!-- <h6 class="heading-small text-muted mb-4">Contact information</h6>
                 <div class="pl-lg-4">
                   <div class="row">
@@ -389,12 +493,12 @@
                     </div>
                   </div>
                 </div> -->
-                <hr class="my-4" />
+                <hr class="my-4">
                 <!-- Description -->
                 <div class="pl-lg-4">
                   <div class="form-group">
                     <label class="form-control-label">Initial Diagnosis</label>
-                    <textarea rows="4" name="diagnosis" class="form-control" placeholder=""></textarea>
+                    <textarea rows="4" name="remarks" class="form-control" placeholder=""></textarea>
                   </div>
                 </div>
 <div class="addtenantmodal-footer modal-footer">
@@ -411,7 +515,7 @@
 <div class="row">
   <div class="col-md-4">
       <button type="button" class="btn btn-block btn-primary mb-3" data-toggle="modal" data-target="#modal-default">Save</button>
-      <div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
+      <div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default" style="display: none;" aria-hidden="true">
     <div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
         <div class="modal-content">
           
@@ -424,8 +528,13 @@
             
             <div class="modal-body">
               
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                <p>Far far away, behind the word mountains, far from the
+ countries Vokalia and Consonantia, there live the blind texts. 
+Separated they live in Bookmarksgrove right at the coast of the 
+Semantics, a large language ocean.</p>
+                <p>A small river named Duden flows by their place and 
+supplies it with the necessary regelialia. It is a paradisematic 
+country, in which roasted parts of sentences fly into your mouth.</p>
                 
             </div>
             
@@ -441,7 +550,7 @@
   </div>
   <div class="col-md-4">
       <button type="button" class="btn btn-block btn-warning mb-3" data-toggle="modal" data-target="#modal-notification">Notification</button>
-      <div class="modal fade" id="modal-notification" tabindex="-1" role="dialog" aria-labelledby="modal-notification" aria-hidden="true">
+      <div class="modal fade" id="modal-notification" tabindex="-1" role="dialog" aria-labelledby="modal-notification" style="display: none;" aria-hidden="true">
     <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
         <div class="modal-content bg-gradient-danger">
           
@@ -503,11 +612,11 @@
           
             <div class="btn-wrapper text-center">
                 <a href="#" class="btn btn-neutral btn-icon">
-                    <span class="btn-inner--icon"><img src="../../assets/img/icons/common/github.svg"></span>
+                    <span class="btn-inner--icon"><img src="Argon%20Dashboard%20-%20Free%20Dashboard%20for%20Bootstrap%204_files/github.svg"></span>
                     <span class="btn-inner--text">Github</span>
                 </a>
                 <a href="#" class="btn btn-neutral btn-icon">
-                    <span class="btn-inner--icon"><img src="../../assets/img/icons/common/google.svg"></span>
+                    <span class="btn-inner--icon"><img src="Argon%20Dashboard%20-%20Free%20Dashboard%20for%20Bootstrap%204_files/google.svg"></span>
                     <span class="btn-inner--text">Google</span>
                 </a>
             </div>
@@ -566,19 +675,19 @@
         <div class="row align-items-center justify-content-lg-between">
           <div class="col-lg-6">
             <div class="copyright text-center  text-lg-left  text-muted">
-              &copy; 2020 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Creative Tim</a>
+              © 2020 <a href="https://www.creative-tim.com/" class="font-weight-bold ml-1" target="_blank">Creative Tim</a>
             </div>
           </div>
           <div class="col-lg-6">
             <ul class="nav nav-footer justify-content-center justify-content-lg-end">
               <li class="nav-item">
-                <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>
+                <a href="https://www.creative-tim.com/" class="nav-link" target="_blank">Creative Tim</a>
               </li>
               <li class="nav-item">
                 <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About Us</a>
               </li>
               <li class="nav-item">
-                <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>
+                <a href="http://blog.creative-tim.com/" class="nav-link" target="_blank">Blog</a>
               </li>
               <li class="nav-item">
                 <a href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md" class="nav-link" target="_blank">MIT License</a>
@@ -591,7 +700,6 @@
   </div>
   <!-- Argon Scripts -->
   <!-- Core -->
-
 
   <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
   <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
