@@ -300,7 +300,7 @@
     <!-- Header -->
     
     <!-- Page content -->
-       <form action="http://206.189.87.169/updatepatient" method="post">  <input type="hidden" name="_token" value="rKYitYtW4ZCdevhwdrUFK8Mmj39Cu7R7HIQNNqQv">
+       <form action="http://206.189.87.169/updatePatient" method="post">  <input type="hidden" name="_token" value="rKYitYtW4ZCdevhwdrUFK8Mmj39Cu7R7HIQNNqQv">
     <div class="container-fluid mt--6">
       <div class="row">
         <div class="col-xl-12 order-xl-1">
