@@ -300,6 +300,7 @@
     <!-- Header -->
     
     <!-- Page content -->
+       <form action="http://206.189.87.169/addpatientapi" method="post">  <input type="hidden" name="_token" value="rKYitYtW4ZCdevhwdrUFK8Mmj39Cu7R7HIQNNqQv">
     <div class="container-fluid mt--6">
       <div class="row">
         <div class="col-xl-12 order-xl-1">
@@ -316,7 +317,7 @@
             </div>
 
             <div class="card-body" id="addtenantmodal">
-              <form action="http://206.189.87.169/addpatientapi" method="post">  <input type="hidden" name="_token" value="rKYitYtW4ZCdevhwdrUFK8Mmj39Cu7R7HIQNNqQv">
+          
                 <h6 class="heading-small text-muted mb-4 pl-lg-4">User information</h6>
                 <div class="pl-lg-4">
                    <div id="notification"></div>
@@ -416,7 +417,7 @@
                       <div class="form-group">
 
                         <label class="form-control-label" for="input-first-name">Name</label>
-                        <input type="text" id="companyname" name="patientfname" class="form-control" placeholder="Full Name" value="Clay">
+                        <input type="text" id="companyname" name="emcontactname" class="form-control" placeholder="Full Name" value="Clay">
                       </div>
                     </div>
                      
@@ -424,13 +425,13 @@
                      <div class="col-lg-4">
                       <div class="form-group">
                         <label class="form-control-label" for="input-username">Contact Number</label>
-                        <input id="input-username" name="birthday" class="form-control" type="text" placeholder="+09123123">
+                        <input id="input-username" name="emcontactnumber" class="form-control" type="text" placeholder="+09123123">
                       </div>
                     </div>
                         <div class="col-lg-4">
                       <div class="form-group">
                         <label class="form-control-label" for="input-username">Relationship</label>
-                        <input type="textarea" id="input-username" name="gender" class="form-control" placeholder="myemail@email.com">
+                        <input type="textarea" id="input-username" name="emrelationship" class="form-control" placeholder="">
                       </div>
                     </div>
                   </div>
