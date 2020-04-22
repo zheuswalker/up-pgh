@@ -34,7 +34,6 @@
 
 <body class="g-sidenav-show g-sidenav-pinned" style="">
   <!-- Sidenav -->
-  <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
     <div class="scroll-wrapper scrollbar-inner" style="position: relative;"><div class="scrollbar-inner scroll-content" style="height: 286px; margin-bottom: -12px; margin-right: -12px; max-height: none;">
       <!-- Brand -->
       <div class="sidenav-header  align-items-center">
