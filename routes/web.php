@@ -20,6 +20,10 @@ Route::get('/addpatient', function () {
 
     return view('addpatient');
 });
+Route::get('/view/updatepatient', function () {
+
+    return view('updatepatient');
+});
 Route::post('/addpatientapi','PatientController@addPatient');
 Route::get('/Patient/{patientid}','PatientController@patientDetails');
 Route::post('/addPatientConfig','PatientController@addPatientConfig');
@@ -34,3 +38,4 @@ Route::get('/t', function () {
 });
 Route::get('/getpatientlist','PatientController@getpatientlist');
 Route::get('/getPatientObservation','PatientController@getPatientObservation');
+Route::post('/updatePatient','PatientController@updatePatient');
