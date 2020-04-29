@@ -25,6 +25,10 @@ class VerifyCsrfToken extends Middleware
         'create_monitor',
         'delete_monitor',
         'update_monitor',
-        'get_monitor'
+        'get_monitor',
+        'create_ward',
+        'delete_ward',
+        'update_ward',
+        'get_ward'
     ];
 }
