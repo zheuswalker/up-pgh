@@ -18,7 +18,7 @@ public function create_ward(Request $request){
 
  	$wardname = $_POST['wardname'];
  	$warddesc = $_POST['warddesc'];
-  	$create_ward = \DB::SELECT("call  sp_addWard(?,?)",[$wardname, $monitordesc]);
+  	$create_ward = \DB::SELECT("call  sp_addWard(?,?)",[$wardname, $warddesc]);
       $create_ward_report = json_encode(array('create_ward_report' => $create_ward ));
       echo $create_ward_report;
 
