@@ -19,7 +19,8 @@ class MonitorController extends BaseController
 
  	$monitorname = $_POST['monitorname'];
  	$monitordesc = $_POST['monitordesc'];
-  	$create_monitor = \DB::SELECT("call sp_addMonitor(?,?)",[$monitorname, $monitordesc]);
+ 	$wardid = $_POST['wardid'];
+  	$create_monitor = \DB::SELECT("call sp_addMonitor(?,?,?)",[$monitorname, $monitordesc,$wardid]);
       $create_monitor_report = json_encode(array('create_monitor_report' => $create_monitor ));
       echo $create_monitor_report;
 
@@ -37,7 +38,8 @@ class MonitorController extends BaseController
  	$monitorid = $_POST['monitorid'];
  	$monitorname = $_POST['monitorname'];
  	$monitordesc = $_POST['monitordesc'];
-  	$update_monitor = \DB::SELECT("call sp_UpdateMonitor(?,?,?)",[$monitorid,$monitorname, $monitordesc]);
+ 	$wardid = $_POST['wardid'];
+  	$update_monitor = \DB::SELECT("call sp_UpdateMonitor(?,?,?,?)",[$monitorid,$monitorname, $monitordesc,$wardid]);
       $update_monitor_report = json_encode(array('update_monitor_report' => $update_monitor ));
       echo $update_monitor_report;
 
