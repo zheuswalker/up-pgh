@@ -45,6 +45,7 @@ Route::post('/create_monitor','MonitorController@create_monitor');
 Route::post('/delete_monitor','MonitorController@delete_monitor');
 Route::post('/update_monitor','MonitorController@update_monitor');
 Route::post('/get_monitor','MonitorController@get_monitor');
+Route::post('/add_patient_toMonitor','MonitorController@add_patient_toMonitor');
 
 
 Route::post('/create_ward','WardController@create_ward');
