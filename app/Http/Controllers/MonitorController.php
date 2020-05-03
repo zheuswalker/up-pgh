@@ -19,7 +19,6 @@ public function add_patient_toMonitor(Request $request){
 
  	$monitorid = $_POST['monitorid'];
  	$patientid = $_POST['patientid'];
- 	$wardid = $_POST['wardid'];
   	$addPatienttoMonitor = \DB::SELECT("call sp_addPatienttoMonitor(?,?)",[$patientid, $monitorid]);
       $addPatienttoMonitor_report = json_encode(array('addPatienttoMonitor_report' => $addPatienttoMonitor ));
       echo $addPatienttoMonitor_report;
