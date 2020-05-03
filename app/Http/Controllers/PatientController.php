@@ -134,11 +134,16 @@ echo json_encode($array);
 ];
 $patientdata = \DB::SELECT("select *  from r_patient_info where rpi_patiendid = ?",[$patientid]);
 
-$output = json_encode(array('PatientData_report' => $patientdata ));
-		echo $output;
-//echo json_encode($array);
+echo json_encode($array);
     }
 
+public function getPatientFullDetails($patientid){
+
+  $patientdata = \DB::SELECT("select *  from r_patient_info where rpi_patiendid = ?",[$patientid]);
+
+$output = json_encode(array('PatientData_report' => $patientdata ));
+    echo $output;
+}
   	public function addPatientData(){
   		$patientid = $_POST['patientid'];
   		$respiration_rate = $_POST['respiration_rate'];

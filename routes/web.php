@@ -26,6 +26,7 @@ Route::get('/view/updatepatient', function () {
 });
 Route::post('/addpatientapi','PatientController@addPatient');
 Route::get('/Patient/{patientid}','PatientController@patientDetails');
+Route::get('/PatientFullDetails/{patientid}','PatientController@getPatientFullDetails');
 Route::post('/addPatientConfig','PatientController@addPatientConfig');
 Route::post('/addPatientData','PatientController@addPatientData');
 Route::get('/patientQue','PatientController@patientQue');
