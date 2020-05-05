@@ -103,7 +103,7 @@ public function updatePatient(){
   	}
 
       public function patientQue(){
-          $addpatient_config = \DB::SELECT("SELECT concat('Patient/',rpi_patiendid) reference FROM `r_patient_info` ");
+          $addpatient_config = \DB::SELECT("SELECT concat('Patient/',rpi_patientid) reference FROM `r_patient_info` ");
 
    $array = [
     'id' => 'patient-queue',
@@ -114,7 +114,7 @@ echo json_encode($array);
     }
 
     public function patientDetails($patientid){
-          $addpatient_config = \DB::SELECT("select *, concat(rpi_patientfname, ' ', rpi_patientmname, ' ', rpi_patientlname ) name , rpi_gender, rpi_birthday from r_patient_info where rpi_patiendid = ?",[$patientid]);
+          $addpatient_config = \DB::SELECT("select *, concat(rpi_patientfname, ' ', rpi_patientmname, ' ', rpi_patientlname ) name , rpi_gender, rpi_birthday from r_patient_info where rpi_patientid = ?",[$patientid]);
   $name;
   $gender;
   $birthdate;
@@ -132,14 +132,14 @@ echo json_encode($array);
     'birthdate'=>$birthdate
     
 ];
-$patientdata = \DB::SELECT("select *  from r_patient_info where rpi_patiendid = ?",[$patientid]);
+$patientdata = \DB::SELECT("select *  from r_patient_info where rpi_patientid = ?",[$patientid]);
 
 echo json_encode($array);
     }
 
 public function getPatientFullDetails($patientid){
 
-  $patientdata = \DB::SELECT("select *  from r_patient_info where rpi_patiendid = ?",[$patientid]);
+  $patientdata = \DB::SELECT("select *  from r_patient_info where rpi_patientid = ?",[$patientid]);
 
 $output = json_encode(array('PatientData_report' => $patientdata ));
     echo $output;
