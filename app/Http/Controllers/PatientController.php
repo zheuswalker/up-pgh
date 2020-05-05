@@ -103,14 +103,23 @@ public function updatePatient(){
   	}
 
       public function patientQue(){
-          $addpatient_config = \DB::SELECT("SELECT concat('Patient/',rpi_patientid) reference FROM `r_patient_info` ");
+          $patient_que = \DB::SELECT("SELECT concat('Patient/',rpi_patientid) reference FROM `r_patient_info` ");
 
-   $array = [
+
+
+$que = array(
     'id' => 'patient-queue',
     'type' => 'person',
-    'member' => [['entity'=>[$addpatient_config]]]
-];
-echo json_encode($array);
+    'member' => array()
+);
+foreach ($patient_que as $reference) {
+    $que['member'][] = array (  
+        'entity' => array('reference'=>$reference->reference)  
+    );
+}
+
+
+echo json_encode($que);
     }
 
     public function patientDetails($patientid){
