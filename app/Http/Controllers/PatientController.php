@@ -135,7 +135,7 @@ echo json_encode($que);
      
    $array = [
     'id' => $patientid,
-    'identifier' => ['value'=>$patientid, 'system'=>'sibol.rxbox.telehealth.ph'],
+    'identifier' => [['system'=>'sibol.rxbox.telehealth.ph', 'value'=>$patientid]],
     'name'=>['text'=>$name],
     'gender'=>$gender,
     'birthdate'=>$birthdate
