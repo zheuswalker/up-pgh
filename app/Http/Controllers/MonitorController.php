@@ -18,10 +18,21 @@ class MonitorController extends BaseController
 public function add_patient_toMonitor(Request $request){
 
  	$monitorid = $_POST['monitorid'];
- 	$patientid = $_POST['patientid'];
-  	$addPatienttoMonitor = \DB::SELECT("call sp_addPatienttoMonitor(?,?)",[$patientid, $monitorid]);
+  $patientid = $_POST['patientid'];
+ 	$slotnumber = $_POST['slotnumber'];
+  	$addPatienttoMonitor = \DB::SELECT("call sp_addPatienttoMonitor(?,?,?)",[$patientid, $monitorid, $slotnumber]);
       $addPatienttoMonitor_report = json_encode(array('addPatienttoMonitor_report' => $addPatienttoMonitor ));
       echo $addPatienttoMonitor_report;
+
+ }
+
+public function remove_patient_toMonitor(Request $request){
+
+  $monitorid = $_POST['monitorid'];
+  $patientid = $_POST['patientid'];
+    $removepatientMonitor_report = \DB::SELECT("call  sp_removepatientMonitor(?,?)",[$patientid, $monitorid]);
+      $removepatientMonitor_report = json_encode(array('removepatientMonitor_report' => $removepatientMonitor_report ));
+      echo $removepatientMonitor_report;
 
  }
 

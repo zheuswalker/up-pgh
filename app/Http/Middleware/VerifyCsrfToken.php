@@ -31,6 +31,7 @@ class VerifyCsrfToken extends Middleware
         'update_ward',
         'get_ward',
         'add_patient_toMonitor',
-        'PatientFullDetails'
+        'PatientFullDetails',
+        'remove_patient_toMonitor'
     ];
 }
