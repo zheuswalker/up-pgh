@@ -19,11 +19,14 @@ class ObservationController extends BaseController
       $decodedobservation =  $request->getContent();
       $decodedobservation = json_decode($decodedobservation);
       $id = $decodedobservation->id;
-      $code = $decodedobservation->code->coding->code;
+      $code = $decodedobservation->code->coding{0}->code;
       $value = $decodedobservation->valueQuantity->value;
       $subject = $decodedobservation->subject->reference;
       $effective = $decodedobservation->effectiveDateTime;
       $status = $decodedobservation->status;
+ $valuesystem = $decodedobservation->valueQuantity->system;
+      $valuecode =  $decodedobservation->valueQuantity->code;
+      $valueunit = $decodedobservation->valueQuantity->unit;
       $error;
       $errorsystem;
       try{
@@ -34,7 +37,7 @@ class ObservationController extends BaseController
           $error = "none";
       }
       
-      $addpatient_observation = \DB::SELECT("call sp_addpatient_observation(?,?,?,?,?,?,?,?)",[$id, $code, $value, $subject, $effective,$status,$error, $errorsystem]);
+      $addpatient_observation = \DB::SELECT("call sp_addpatient_observation(?,?,?,?,?,?,?,?,?,?,?)",[$id, $code, $value, $subject, $effective,$status,$error, $errorsystem,$valuesystem,$valuecode,$valueunit]);
       $addpatient_observation_report = json_encode(array('addpatient_observation_report' => $addpatient_observation ));
       echo $addpatient_observation_report;
 
