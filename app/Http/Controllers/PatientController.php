@@ -123,7 +123,7 @@ echo json_encode($que);
     }
 
     public function patientDetails($patientid){
-          $addpatient_config = \DB::SELECT("select *, concat(rpi_patientfname, ' ', rpi_patientmname, ' ', rpi_patientlname ) name , rpi_gender, rpi_birthday from r_patient_info where rpi_patiendid = ?",[$patientid]);
+          $addpatient_config = \DB::SELECT("select *, concat(rpi_patientfname, ' ', rpi_patientmname, ' ', rpi_patientlname ) name , rpi_gender,  DATE_FORMAT(str_to_date(rpi_birthday, '%m/%d/%Y' ), '%Y-%M-%d')  rpi_birthday from r_patient_info where rpi_patientid = ?",[$patientid]);
   $name;
   $gender;
   $birthdate;
@@ -136,19 +136,19 @@ echo json_encode($que);
    $array = [
     'id' => $patientid,
     'identifier' => [['system'=>'sibol.rxbox.telehealth.ph', 'value'=>$patientid]],
-    'name'=>['text'=>$name],
+    'name'=>[['use'=>'official','text'=>$name]],
     'gender'=>$gender,
     'birthdate'=>$birthdate
     
 ];
-$patientdata = \DB::SELECT("select *  from r_patient_info where rpi_patiendid = ?",[$patientid]);
+$patientdata = \DB::SELECT("select *  from r_patient_info where rpi_patientid = ?",[$patientid]);
 
 echo json_encode($array);
     }
 
 public function getPatientFullDetails($patientid){
 
-  $patientdata = \DB::SELECT("select *  from r_patient_info where rpi_patiendid = ?",[$patientid]);
+  $patientdata = \DB::SELECT("select *  from r_patient_info where rpi_patientid = ?",[$patientid]);
 
 $output = json_encode(array('PatientData_report' => $patientdata ));
     echo $output;

@@ -29,7 +29,7 @@ Route::get('/Patient/{patientid}','PatientController@patientDetails');
 Route::get('/PatientFullDetails/{patientid}','PatientController@getPatientFullDetails');
 Route::post('/addPatientConfig','PatientController@addPatientConfig');
 Route::post('/addPatientData','PatientController@addPatientData');
-Route::get('/patientQue','PatientController@patientQue');
+Route::get('/Group/patient-queue','PatientController@patientQue');
 Route::post('/Observation','ObservationController@createObservation');
 Route::get('/t', function () {
 
