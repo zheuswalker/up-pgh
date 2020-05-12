@@ -70,7 +70,7 @@ public function remove_patient_toMonitor(Request $request){
 public function get_monitor(Request $request){
 
   	$getMonitorList = \DB::SELECT("call sp_getMonitorList()");
-      $getMonitorList_report = json_encode(array('getMonitorList_report' => $getMonitorList ));
+      $getMonitorList_report = json_encode( $getMonitorList );
       echo $getMonitorList_report;
 
  }
