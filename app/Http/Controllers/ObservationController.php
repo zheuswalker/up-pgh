@@ -19,7 +19,7 @@ class ObservationController extends BaseController
       $decodedobservation =  $request->getContent();
       $decodedobservation = json_decode($decodedobservation);
       $id = $decodedobservation->id;
-      $code = $decodedobservation->code->coding->code;
+      $code = $decodedobservation->code->coding{0}->code;
       $value = $decodedobservation->valueQuantity->value;
       $subject = $decodedobservation->subject->reference;
       $effective = $decodedobservation->effectiveDateTime;
