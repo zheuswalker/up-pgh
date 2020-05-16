@@ -23,6 +23,7 @@ class ObservationController extends BaseController
       $value = $decodedobservation->valueQuantity->value;
       $subject = $decodedobservation->subject->reference;
       $effective = $decodedobservation->effectiveDateTime;
+      $effective = date('Y-m-d h:i:s', strtotime($effective));
       $status = $decodedobservation->status;
       $valuesystem = $decodedobservation->valueQuantity->system;
       $valuecode =  $decodedobservation->valueQuantity->code;

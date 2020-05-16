@@ -19,8 +19,7 @@ public function add_patient_toMonitor(Request $request){
 
  	$monitorid = $_POST['monitorid'];
   $patientid = $_POST['patientid'];
- 	$slotnumber = $_POST['slotnumber'];
-  	$addPatienttoMonitor = \DB::SELECT("call sp_addPatienttoMonitor(?,?,?)",[$patientid, $monitorid, $slotnumber]);
+  	$addPatienttoMonitor = \DB::SELECT("call sp_addPatienttoMonitor(?,?)",[$patientid, $monitorid]);
       $addPatienttoMonitor_report = json_encode(array('addPatienttoMonitor_report' => $addPatienttoMonitor ));
       echo $addPatienttoMonitor_report;
 
@@ -61,7 +60,8 @@ public function remove_patient_toMonitor(Request $request){
  	$monitorname = $_POST['monitorname'];
  	$monitordesc = $_POST['monitordesc'];
  	$wardid = $_POST['wardid'];
-  	$update_monitor = \DB::SELECT("call sp_UpdateMonitor(?,?,?,?)",[$monitorid,$monitorname, $monitordesc,$wardid]);
+	$maxslot =$_POST['maxslot'];
+  	$update_monitor = \DB::SELECT("call sp_UpdateMonitor(?,?,?,?,?)",[$monitorid,$monitorname, $monitordesc,$wardid,$maxslot]);
       $update_monitor_report = json_encode(array('update_monitor_report' => $update_monitor ));
       echo $update_monitor_report;
 
