@@ -41,8 +41,12 @@ class PatientController extends BaseController
       $ward = $_POST['ward'];
       $emcontactname = $_POST['emcontactname'];
       $emcontactnumber = $_POST['emcontactnumber'];
-  		$emrelationship = $_POST['emrelationship'];
-  		$addpatient = \DB::SELECT("call sp_addpatient(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",[$patientfname, $patientmname, $patientlname, $birthday,$gender,$age, $covid19, $remarks, $address, $city,$country,$contact, $email, $sss_gsis, $philhealth, $hmo,$admission,$ward,$emcontactname,$emcontactnumber,$emrelationship]);
+      $emrelationship = $_POST['emrelationship'];
+      $civil_status = $_POST['civil_status'];
+      $classification = $_POST['classification'];
+  		$bed_no = $_POST['bed_no'];
+  		$addpatient = \DB::SELECT("call sp_addpatient(?,?,?,?,?,?,?,?,?,?,?,?
+        ,?,?,?,?,?,?,?,?,?,?,?,?)",[$patientfname, $patientmname, $patientlname, $birthday,$gender,$age, $covid19, $remarks, $address, $city,$country,$contact, $email, $sss_gsis, $philhealth, $hmo,$admission,$ward,$emcontactname,$emcontactnumber,$emrelationship,$civil_status,$classification,$bed_no]);
 		$output = json_encode(array('addpatient_report' => $addpatient ));
 		echo $output;
     
@@ -79,7 +83,12 @@ public function updatePatient(){
       $emcontactnumber = $_POST['emcontactnumber'];
       $emrelationship = $_POST['emrelationship'];
       $patientid = $_POST['patientid'];
-      $updatepatient = \DB::SELECT("call  sp_updatepatient(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",[$patientfname, $patientmname, $patientlname, $birthday,$gender,$age, $covid19, $remarks, $address, $city,$country,$contact, $email, $sss_gsis, $philhealth, $hmo,$admission,$ward,$emcontactname,$emcontactnumber,$emrelationship,$patientid]);
+      $civil_status = $_POST['civil_status'];
+      $classification = $_POST['classification'];
+      $bed_no = $_POST['bed_no'];
+
+      $updatepatient = \DB::SELECT("call  sp_updatepatient(?,?,?,?,?,?,?,?,?,?,?,
+        ?,?,?,?,?,?,?,?,?,?,?,?,?,?)",[$patientfname, $patientmname, $patientlname, $birthday,$gender,$age, $covid19, $remarks, $address, $city,$country,$contact, $email, $sss_gsis, $philhealth, $hmo,$admission,$ward,$emcontactname,$emcontactnumber,$emrelationship,$patientid,$civil_status,$classification,$bed_no]);
     $output = json_encode(array('updatepatient_report' => $updatepatient ));
     echo $output;
     
