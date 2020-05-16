@@ -75,4 +75,13 @@ public function get_monitor(Request $request){
 
  }
 
+ public function get_monitorPatients($monitorid){
+
+    $getPatientList = \DB::SELECT("call sp_getmonitorpatientlist(?)",[$monitorid]);
+      $getPatientList = json_encode( $getPatientList );
+      echo $getPatientList;
+
+ }
+
+
 }
