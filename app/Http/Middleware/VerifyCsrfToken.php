@@ -33,7 +33,11 @@ class VerifyCsrfToken extends Middleware
         'add_patient_toMonitor',
         'PatientFullDetails',
         'remove_patient_toMonitor',
-	'monitorWithPatient/{monitorid}'
+	'monitorWithPatient/{monitorid}',
+    'create_statuscode',
+    'filter_statuscode',
+    'statuscodes/all',
+    'delete_statuscode'
 
     ];
 }
