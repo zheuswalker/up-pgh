@@ -69,7 +69,7 @@ class ObservationController extends BaseController
 
     $statuscode = $_GET['statuscode'];
     $filter_statuscode = \DB::SELECT("call  sp_filterstatuscode(?)",[$statuscode]);
-      $filter_statuscode = json_encode( $filter_statuscode );
+      $filter_statuscode = json_encode( array('filter_statuscode_report'=>$filter_statuscode) );
       echo $filter_statuscode;
 
  }
