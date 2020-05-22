@@ -43,5 +43,43 @@ class ObservationController extends BaseController
 
   
   }
+
+   public function create_statuscode(Request $request){
+
+    $name = $_POST['name'];
+    $descr = $_POST['descr'];
+    $category = $_POST['category'];
+    $create_statuscode = \DB::SELECT("call  sp_createstatuscode(?,?,?)",[$name,$descr,$category]);
+      $create_statuscode_report = json_encode(array('create_statuscode' => $create_statuscode ));
+      echo $create_statuscode_report;
+
+ }
+
+ public function delete_statuscode(Request $request){
+
+    $codeid = $_POST['codeid'];
+    $delete_statuscode = \DB::SELECT("call  sp_deletestatuscode(?)",[$codeid]);
+      $delete_statuscode_report = json_encode(array('delete_statuscode' => $delete_statuscode ));
+      echo $delete_statuscode_report;
+
+ }
+
+  public function filter_statuscode(){
+
+    $statuscode = $_GET['statuscode'];
+    $filter_statuscode = \DB::SELECT("call  sp_filterstatuscode(?)",[$statuscode]);
+      $filter_statuscode = json_encode( $filter_statuscode );
+      echo $filter_statuscode;
+
+ }
+
+  public function get_statuscode(Request $request){
+
+    $get_statuscode = \DB::SELECT("call sp_getstatuscode()");
+      $get_statuscode_report = json_encode(array('delete_statuscode' => $get_statuscode ));
+      echo $get_statuscode_report;
+
+ }
+
   	
 }
