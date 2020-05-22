@@ -60,7 +60,8 @@ public function remove_patient_toMonitor(Request $request){
  	$monitorname = $_POST['monitorname'];
  	$monitordesc = $_POST['monitordesc'];
  	$wardid = $_POST['wardid'];
-  	$update_monitor = \DB::SELECT("call sp_UpdateMonitor(?,?,?,?)",[$monitorid,$monitorname, $monitordesc,$wardid]);
+	$maxslot =$_POST['maxslot'];
+  	$update_monitor = \DB::SELECT("call sp_UpdateMonitor(?,?,?,?,?)",[$monitorid,$monitorname, $monitordesc,$wardid,$maxslot]);
       $update_monitor_report = json_encode(array('update_monitor_report' => $update_monitor ));
       echo $update_monitor_report;
 

@@ -132,7 +132,7 @@ echo json_encode($que);
     }
 
     public function patientDetails($patientid){
-          $addpatient_config = \DB::SELECT("select *, concat(rpi_patientfname, ' ', rpi_patientmname, ' ', rpi_patientlname ) name , rpi_gender,  DATE_FORMAT(str_to_date(rpi_birthday, '%m/%d/%Y' ), '%Y-%M-%d')  rpi_birthday from r_patient_info where rpi_patientid = ?",[$patientid]);
+          $addpatient_config = \DB::SELECT("select *, concat(rpi_patientfname, ' ', rpi_patientmname, ' ', rpi_patientlname ) name , rpi_gender,  DATE_FORMAT(str_to_date(rpi_birthday, '%m/%d/%Y' ), '%Y-%m-%d')  rpi_birthday from r_patient_info where rpi_patientid = ?",[$patientid]);
   $name;
   $gender;
   $birthdate;
