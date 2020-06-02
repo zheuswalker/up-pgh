@@ -37,7 +37,8 @@ class VerifyCsrfToken extends Middleware
     'create_statuscode',
     'filter_statuscode',
     'statuscodes/all',
-    'delete_statuscode'
+    'delete_statuscode',
+    '/PatientConfig/{patientid}'
 
     ];
 }

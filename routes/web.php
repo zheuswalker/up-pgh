@@ -60,3 +60,4 @@ Route::post('/create_statuscode','ObservationController@create_statuscode');
 Route::get('/filter_statuscode','ObservationController@filter_statuscode');
 Route::get('/statuscodes/all','ObservationController@get_statuscode');
 Route::post('/delete_statuscode','ObservationController@delete_statuscode');
+Route::get('/PatientConfig/{patientid}','PatientController@getPatientConfig');
