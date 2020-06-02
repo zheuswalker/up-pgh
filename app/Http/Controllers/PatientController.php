@@ -20,6 +20,8 @@ class PatientController extends BaseController
    echo json_encode($patient_observation);
 
     }
+     
+
   	public function addPatient(){
   		$patientfname = $_POST['patientfname'];
   		$patientmname = $_POST['patientmname'];
@@ -99,17 +101,36 @@ public function updatePatient(){
     $output = json_encode(array('getpatientlist_report' => $getpatientlist_report ));
     echo $output;
     }
+
     public function addPatientConfig(){
+
   		$patientid = $_POST['patientid'];
-  		$respiration_rate = $_POST['respiration_rate'];
-  		$oxygen_level = $_POST['oxygen_level'];
-  		$bprate_sys = $_POST['bprate_sys'];
-  		$bprate_dias = $_POST['bprate_dias'];
-  		$heart_rate = $_POST['heart_rate'];
-  		$addpatient_config = \DB::SELECT("call sp_patientconfig(?,?,?,?,?,?)",[$patientid, $respiration_rate, $oxygen_level,$bprate_sys,$bprate_dias, $heart_rate]);
-		$output = json_encode(array('addpatient_config_report' => $addpatient_config ));
-		echo $output;
-  	}
+  		$ecg_st_msec = $_POST['ecg_st_msec'];
+  		$heartrate_upper_bpm = $_POST['heartrate_upper_bpm'];
+  		$heartrate_lower_bpm = $_POST['heartrate_lower_bpm'];
+  		$pulserate_upper_bpm = $_POST['pulserate_upper_bpm'];
+      $pulserate_lower_bpm = $_POST['pulserate_lower_bpm'];
+      $oxygen_upper_saturation = $_POST['oxygen_upper_saturation'];
+      $oxygen_lower_saturation = $_POST['oxygen_lower_saturation'];
+      $respiratory_upper_rpm = $_POST['respiratory_upper_rpm'];
+      $respiratory_lower_rpm = $_POST['respiratory_lower_rpm'];
+      $bp_systolic_upper = $_POST['bp_systolic_upper'];
+      $bp_systolic_lower = $_POST['bp_systolic_lower'];
+      $bp_diastolic_upper = $_POST['bp_diastolic_upper'];
+      $bp_diastolic_lower = $_POST['bp_diastolic_lower'];
+      $bp_time_frame = $_POST['bp_time_frame'];
+      $temperature_upper = $_POST['temperature_upper'];
+      $temperature_lower = $_POST['temperature_lower'];
+
+  		$addpatient_config = \DB::SELECT("call sp_add_patient_config(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",[$patientid, $ecg_st_msec, $heartrate_upper_bpm,$heartrate_lower_bpm,$pulserate_upper_bpm, $pulserate_lower_bpm,
+        $oxygen_upper_saturation,$oxygen_lower_saturation,$respiratory_upper_rpm ,$respiratory_lower_rpm ,
+        $bp_systolic_upper ,$bp_systolic_lower,$bp_diastolic_upper,$bp_diastolic_lower, $bp_time_frame, 
+        $temperature_upper,$temperature_lower
+      ]);
+		  $output = json_encode(array('addpatient_config_report' => $addpatient_config ));
+		  echo $output;
+  	
+    }
 
     public function patientQue(){
           $patient_que = \DB::SELECT("SELECT concat('Patient/',rpi_patientid) reference FROM `r_patient_info` ");
