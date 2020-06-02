@@ -12,12 +12,18 @@ use DB;
 class PatientController extends BaseController
 {
 
+  
     public function getPatientObservation(){
        
 
       $patient_observation = \DB::SELECT("call sp_getPatientObservations()");
 
    echo json_encode($patient_observation);
+
+    }
+    public function getPatientConfig($patientid){
+      $patient_config = \DB::SELECT("call sp_get_patient_config(?)",[$patientid]);
+      echo json_encode($patient_config);
 
     }
      
