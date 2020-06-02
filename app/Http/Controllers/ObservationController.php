@@ -77,7 +77,7 @@ class ObservationController extends BaseController
   public function get_statuscode(Request $request){
 
     $get_statuscode = \DB::SELECT("call sp_getstatuscode()");
-      $get_statuscode_report = json_encode(array('delete_statuscode' => $get_statuscode ));
+      $get_statuscode_report = json_encode(array('statuscode_report' => $get_statuscode ));
       echo $get_statuscode_report;
 
  }
