@@ -57,7 +57,6 @@ class ObservationController extends BaseController
       echo $addpatient_observation_report;
           }
 
-      echo count($decodedobservation->component, true);
 
 
       }
