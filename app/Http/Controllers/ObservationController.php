@@ -18,16 +18,11 @@ class ObservationController extends BaseController
       // $observation = json_encode($_REQUEST['observation']);
       $decodedobservation =  $request->getContent();
       $decodedobservation = json_decode($decodedobservation);
-      $id = $decodedobservation->id;
-      $code = $decodedobservation->code->coding{0}->code;
-      $value = $decodedobservation->valueQuantity->value;
+      $id = $decodedobservation->id;      
       $subject = $decodedobservation->subject->reference;
       $effective = $decodedobservation->effectiveDateTime;
       $effective = date('Y-m-d h:i:s', strtotime($effective));
       $status = $decodedobservation->status;
-      $valuesystem = $decodedobservation->valueQuantity->system;
-      $valuecode =  $decodedobservation->valueQuantity->code;
-      $valueunit = $decodedobservation->valueQuantity->unit;
       $error;
       $errorsystem;
       try{
@@ -38,10 +33,34 @@ class ObservationController extends BaseController
           $error = "none";
       }
       
+      try{
+      $code = $decodedobservation->code->coding{0}->code;
+      $value = $decodedobservation->valueQuantity->value;
+      $valuesystem = $decodedobservation->valueQuantity->system;
+      $valuecode =  $decodedobservation->valueQuantity->code;
+      $valueunit = $decodedobservation->valueQuantity->unit;
+
+      
       $addpatient_observation = \DB::SELECT("call sp_addpatient_observation(?,?,?,?,?,?,?,?,?,?,?)",[$id, $code, $value, $subject, $effective,$status,$error, $errorsystem,$valuesystem,$valuecode,$valueunit]);
       $addpatient_observation_report = json_encode(array('addpatient_observation_report' => $addpatient_observation ));
       echo $addpatient_observation_report;
+      
+      }catch(\Exception $ex){
+          foreach($decodedobservation->component as $obsarray_content){
+      $code = $obsarray_content->code->coding{0}->code;
+      $value = $obsarray_content->valueQuantity->value;
+      $valuesystem = $obsarray_content->valueQuantity->system;
+      $valuecode =  $obsarray_content->valueQuantity->code;
+      $valueunit = $obsarray_content->valueQuantity->unit;
+      $addpatient_observation = \DB::SELECT("call sp_addpatient_observation(?,?,?,?,?,?,?,?,?,?,?)",[$id, $code, $value, $subject, $effective,$status,$error, $errorsystem,$valuesystem,$valuecode,$valueunit]);
+      $addpatient_observation_report = json_encode(array('addpatient_observation_report' => $addpatient_observation ));
+      echo $addpatient_observation_report;
+          }
 
+      echo count($decodedobservation->component, true);
+
+
+      }
   
   }
 
