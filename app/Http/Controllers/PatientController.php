@@ -140,9 +140,6 @@ public function updatePatient(){
 
     public function patientQue(){
           $patient_que = \DB::SELECT("SELECT concat('Patient/',rpi_patientid) reference FROM `r_patient_info` ");
-
-
-
 $que = array(
     'id' => 'patient-queue',
     'type' => 'person',
@@ -180,6 +177,7 @@ echo json_encode($que);
 $patientdata = \DB::SELECT("select *  from r_patient_info where rpi_patientid = ?",[$patientid]);
 
 echo json_encode($array);
+    
     }
 
 public function getPatientFullDetails($patientid){
