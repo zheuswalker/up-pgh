@@ -66,11 +66,8 @@ class ObservationController extends BaseController
  public function patientTimeFrame(){
   $patientid = trim($_GET['patient']);
   try{
-  $patientid = substr($patientid, strpos($patientid," ")+1, strlen($patientid));
-}catch(\Exception $ex){
-  echo "invalid request body";
-}
-          $patient_timeframe = \DB::SELECT("call sp_getpatienttimeframe(?)",[$patientid]);
+  $patientid = substr($patientid, strpos($patientid,"/")+1, strlen($patientid));
+     $patient_timeframe = \DB::SELECT("call sp_getpatienttimeframe(?)",[$patientid]);
   $period;
   if(count($patient_timeframe) > 0) {
             foreach($patient_timeframe as $row) { 
@@ -79,14 +76,21 @@ class ObservationController extends BaseController
         }
      $patientinfo = "Patient/".$patientid;
    $array = [
+    'type' => "searchset",
+    'total' => 1,
+    'entry' =>[[
     'intent' => "order",
     'codeCodeableConcept'=> ['code'=>"70665002", 'System'=>"http://hl7.org/fhir/ValueSet/device-kind"],
     'subject' => $patientinfo,
     'occurenceTiming'=>array("repeat"=>array("frequency"=>1,"period"=>$period, "periodunit"=>"m"))
-    
+    ]]   
 ];
 
 echo json_encode($array);
+}catch(\Exception $ex){
+  echo "invalid request body";
+}
+     
     }
 
 
