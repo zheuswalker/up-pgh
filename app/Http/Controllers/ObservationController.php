@@ -93,6 +93,22 @@ echo json_encode($array);
      
     }
 
+    public function getPatientRangedObservation(){
+
+      try{
+    $obscode = $_POST['obscode'];
+    $spec_date = $_POST['spec_date'];
+    $patientid = $_POST['patientid'];
+    $PatientRangedObservation = \DB::SELECT("call  sp_getPatientObservationRange(?,?,?)",[$obscode,$spec_date,$patientid]);
+      $PatientRangedObservation = json_encode(array('PatientRangedObservation' => $PatientRangedObservation ));
+      echo $PatientRangedObservation;
+
+      }catch(\Exception $ex){
+          echo "invalid request";
+      }
+
+    }
+
 
    public function create_statuscode(Request $request){
 
