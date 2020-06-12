@@ -39,7 +39,8 @@ class VerifyCsrfToken extends Middleware
     'statuscodes/all',
     'delete_statuscode',
     '/PatientConfig/{patientid}',
-    'DeviceRequest'
+    'DeviceRequest',
+    'getPatientRangedObservation'
 
     ];
 }
