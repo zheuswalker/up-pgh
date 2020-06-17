@@ -107,7 +107,12 @@ class ObservationController extends BaseController
 
 echo json_encode($array);
 }catch(\Exception $ex){
-  echo "invalid request body";
+  $array = [
+    'type' => "searchset",
+    'total' => 0,
+    'entry' => []
+  ]
+  echo $array;
 }
      
     }
@@ -118,6 +123,7 @@ echo json_encode($array);
     $obscode = $_POST['obscode'];
     $spec_date = $_POST['spec_date'];
     $patientid = $_POST['patientid'];
+    $patientinfo = "Patient/".$patientid;
     $PatientRangedObservation = \DB::SELECT("call  sp_getPatientObservationRange(?,?,?)",[$obscode,$spec_date,$patientid]);
       $PatientRangedObservation = json_encode(array('PatientRangedObservation' => $PatientRangedObservation ));
       echo $PatientRangedObservation;
