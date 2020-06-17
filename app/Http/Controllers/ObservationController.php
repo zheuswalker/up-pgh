@@ -47,6 +47,8 @@ class ObservationController extends BaseController
       
       }catch(\Exception $ex){
           foreach($decodedobservation->component as $obsarray_content){
+
+            if(isset($obsarray_content->valueQuantity->value)){
       $code = $obsarray_content->code->coding{0}->code;
       $value = $obsarray_content->valueQuantity->value;
       $valuesystem = $obsarray_content->valueQuantity->system;
@@ -55,6 +57,23 @@ class ObservationController extends BaseController
       $addpatient_observation = \DB::SELECT("call sp_addpatient_observation(?,?,?,?,?,?,?,?,?,?,?)",[$id, $code, $value, $subject, $effective,$status,$error, $errorsystem,$valuesystem,$valuecode,$valueunit]);
       $addpatient_observation_report = json_encode(array('addpatient_observation_report' => $addpatient_observation ));
       echo $addpatient_observation_report;
+    }else if(isset($obsarray_content->valueSampledData->data)){
+
+     
+      $code = $obsarray_content->code->coding{0}->code;
+      $valuesystem = $obsarray_content->code->coding{0}->system;
+      $originvalue = $obsarray_content->valueSampledData->origin->value;
+      $period = $obsarray_content->valueSampledData->period;
+      $factor = $obsarray_content->valueSampledData->factor;
+      $dimensions = $obsarray_content->valueSampledData->dimensions;
+      $data = $obsarray_content->valueSampledData->data;
+      $addpatient_observation = \DB::SELECT("call sp_insertECG(?,?,?,?,?,?,?,?,?,?)",[$id, $status, $valuesystem, $subject, $effective,$originvalue,$period, $factor,$dimensions,$data]);
+      $addpatient_observation_report = json_encode(array('addpatient_observation_report' => $addpatient_observation ));
+      echo $addpatient_observation_report;
+
+
+    }
+
           }
 
 
