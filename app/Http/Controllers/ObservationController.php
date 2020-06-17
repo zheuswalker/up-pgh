@@ -99,7 +99,7 @@ class ObservationController extends BaseController
     'total' => 1,
     'entry' =>[[
     'intent' => "order",
-    'codeCodeableConcept'=> ['code'=>"70665002", 'System'=>"http://hl7.org/fhir/ValueSet/device-kind"],
+    'codeCodeableConcept'=> ['coding'=>[['code'=>"70665002", 'System'=>"http://snomed.info/sct"]]],
     'subject' => $patientinfo,
     'occurenceTiming'=>array("repeat"=>array("frequency"=>1,"period"=>$period, "periodunit"=>"m"))
     ]]   
@@ -111,8 +111,8 @@ echo json_encode($array);
     'type' => "searchset",
     'total' => 0,
     'entry' => []
-  ]
-  echo $array;
+  ];
+  echo json_encode($array);
 }
      
     }
@@ -123,7 +123,7 @@ echo json_encode($array);
     $obscode = $_POST['obscode'];
     $spec_date = $_POST['spec_date'];
     $patientid = $_POST['patientid'];
-    $patientinfo = "Patient/".$patientid;
+    $patientid = "Patient/".$patientid;
     $PatientRangedObservation = \DB::SELECT("call  sp_getPatientObservationRange(?,?,?)",[$obscode,$spec_date,$patientid]);
       $PatientRangedObservation = json_encode(array('PatientRangedObservation' => $PatientRangedObservation ));
       echo $PatientRangedObservation;
