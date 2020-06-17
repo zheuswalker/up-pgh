@@ -122,7 +122,8 @@ echo json_encode($array);
       try{
     $obscode = $_POST['obscode'];
     $spec_date = $_POST['spec_date'];
-    $patientid = substr($patientid, strpos($patientid,"/")+1, strlen($patientid));
+    $patientid = $_POST['patientid'];
+    $patientinfo = "Patient/".$patientid;
     $PatientRangedObservation = \DB::SELECT("call  sp_getPatientObservationRange(?,?,?)",[$obscode,$spec_date,$patientid]);
       $PatientRangedObservation = json_encode(array('PatientRangedObservation' => $PatientRangedObservation ));
       echo $PatientRangedObservation;
