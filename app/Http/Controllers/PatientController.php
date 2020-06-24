@@ -17,8 +17,13 @@ class PatientController extends BaseController
        
 
       $patient_observation = \DB::SELECT("call sp_getPatientObservations()");
+      $patient_ecgbos = \DB::SELECT("call sp_getECGObs()");
 
-   echo json_encode($patient_observation);
+   echo json_encode(array('patientBasicObservation' =>$patient_observation);
+   echo json_encode(array('patientECGObservation' =>$patient_ecgbos);
+     $output = json_encode(array('deletepatient_report' => $deletepatient ));
+    echo $output;
+    
 
     }
     public function getPatientConfig($patientid){
