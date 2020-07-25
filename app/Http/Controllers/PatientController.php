@@ -111,8 +111,8 @@ public function updatePatient(){
     public function addPatientConfig(){
 
   		$patientid = $_POST['patientid'];
-      if(isset($_POST['patientid']))
-        if(isset($_POST['ecg_st_msec']))
+      if(isset($_POST['patientid'])){
+        if(isset($_POST['ecg_st_msec'])&&$_POST['ecg_st_msec']!='')
       		$ecg_st_msec = $_POST['ecg_st_msec'];
         else
           $ecg_st_msec = 0;
