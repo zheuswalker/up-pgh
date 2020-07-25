@@ -141,7 +141,6 @@ public function updatePatient(){
           $oxygen_upper_saturation = $_POST['oxygen_upper_saturation'];
         else
           $oxygen_upper_saturation = 0;
-        
         if(isset($_POST['oxygen_lower_saturation']))
           $oxygen_lower_saturation = $_POST['oxygen_lower_saturation'];
         else
