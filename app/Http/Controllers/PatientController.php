@@ -18,7 +18,7 @@ class PatientController extends BaseController
       $patient_ecgbos = \DB::SELECT("call sp_getECGObs()");
 
    echo json_encode(array('patientBasicObservation' =>$patient_observation));
-   echo json_encode(array('patientECGObservation' =>$patient_ecgbos));
+//   echo json_encode(array('patientECGObservation' =>$patient_ecgbos));
      
     }
     public function getPatientConfig($patientid){
@@ -204,7 +204,7 @@ public function updatePatient(){
     }
 
     public function patientQue(){
-          $patient_que = \DB::SELECT("SELECT concat('Patient/',rpi_patientid) reference FROM `r_patient_info` ");
+          $patient_que = \DB::SELECT("SELECT concat('Patient/',rpi_patientid) reference FROM `r_patient_info` where rpi_patientstatus = 1");
 $que = array(
     'id' => 'patient-queue',
     'type' => 'person',

@@ -29,8 +29,8 @@ class ObservationController extends BaseController
       $error =$decodedobservation->dataAbsentReason->coding->code;
       $errorsystem =$decodedobservation->dataAbsentReason->coding->system;
       }catch(\Exception $ex){
-          $errorsystem = "none";
-          $error = "none";
+          $errorsystem = "";
+          $error = "";
       }
       
       try{
