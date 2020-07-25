@@ -117,76 +117,76 @@ public function updatePatient(){
         else
           $ecg_st_msec = 0;
 
-        if(isset($_POST['heartrate_upper_bpm']))
+        if(isset($_POST['heartrate_upper_bpm'])&&$_POST['ecg_st_msec']!='')
           $heartrate_upper_bpm = $_POST['heartrate_upper_bpm'];
         else
           $heartrate_upper_bpm = 0;
 
-        if(isset($_POST['heartrate_lower_bpm']))
+        if(isset($_POST['heartrate_lower_bpm'])&&$_POST['heartrate_lower_bpm']!='')
           $heartrate_lower_bpm = $_POST['heartrate_lower_bpm'];
         else
           $heartrate_lower_bpm = 0;
         
-        if(isset($_POST['pulserate_upper_bpm']))
+        if(isset($_POST['pulserate_upper_bpm'])&&$_POST['pulserate_upper_bpm']!='')
           $pulserate_upper_bpm = $_POST['pulserate_upper_bpm'];
         else
           $pulserate_upper_bpm = 0;
         
-        if(isset($_POST['pulserate_lower_bpm']))
+        if(isset($_POST['pulserate_lower_bpm'])&&$_POST['pulserate_lower_bpm']!='')
           $pulserate_lower_bpm = $_POST['pulserate_lower_bpm'];
         else
           $pulserate_lower_bpm = 0;
 
-        if(isset($_POST['oxygen_upper_saturation']))
+        if(isset($_POST['oxygen_upper_saturation'])&&$_POST['oxygen_upper_saturation']!='')
           $oxygen_upper_saturation = $_POST['oxygen_upper_saturation'];
         else
           $oxygen_upper_saturation = 0;
-        if(isset($_POST['oxygen_lower_saturation']))
+        if(isset($_POST['oxygen_lower_saturation'])&&$_POST['oxygen_lower_saturation']!='')
           $oxygen_lower_saturation = $_POST['oxygen_lower_saturation'];
         else
           $oxygen_lower_saturation = 0;
 
-        if(isset($_POST['respiratory_upper_rpm']))
+        if(isset($_POST['respiratory_upper_rpm'])&&$_POST['respiratory_upper_rpm']!='')
           $respiratory_upper_rpm = $_POST['respiratory_upper_rpm'];
         else
           $respiratory_upper_rpm = 0;
         
-        if(isset($_POST['respiratory_lower_rpm']))
+        if(isset($_POST['respiratory_lower_rpm'])&&$_POST['respiratory_lower_rpm']!='')
           $respiratory_lower_rpm = $_POST['respiratory_lower_rpm'];
         else
           $respiratory_lower_rpm = 0;
   		
-       if(isset($_POST['bp_systolic_upper']))
+       if(isset($_POST['bp_systolic_upper'])&&$_POST['bp_systolic_upper']!='')
           $bp_systolic_upper = $_POST['bp_systolic_upper'];
         else
           $bp_systolic_upper = 0;
 
-       if(isset($_POST['bp_systolic_lower']))
+       if(isset($_POST['bp_systolic_lower'])&&$_POST['bp_systolic_lower']!='')
           $bp_systolic_lower = $_POST['bp_systolic_lower'];
         else
           $bp_systolic_lower = 0;
    
-       if(isset($_POST['bp_diastolic_upper']))
+       if(isset($_POST['bp_diastolic_upper'])&&$_POST['bp_diastolic_upper']!='')
          $bp_diastolic_upper = $_POST['bp_diastolic_upper'];
         else
           $bp_diastolic_upper = 0;
         
-       if(isset($_POST['bp_diastolic_lower']))
+       if(isset($_POST['bp_diastolic_lower'])&&$_POST['bp_diastolic_lower']!='')
           $bp_diastolic_lower = $_POST['bp_diastolic_lower'];
         else
           $bp_diastolic_lower = 0;
 
-        if(isset($_POST['bp_time_frame']))
+        if(isset($_POST['bp_time_frame'])&&$_POST['bp_time_frame']!='')
          $bp_time_frame = $_POST['bp_time_frame'];
         else
           $bp_time_frame = 0;
         
-       if(isset($_POST['temperature_upper']))
+       if(isset($_POST['temperature_upper'])&&$_POST['temperature_upper']!='')
           $temperature_upper = $_POST['temperature_upper'];
         else
           $temperature_upper = 0;
   
-       if(isset($_POST['temperature_lower']))
+       if(isset($_POST['temperature_lower'])&&$_POST['temperature_lower']!='')
           $temperature_lower = $_POST['temperature_lower'];
         else
           $temperature_lower = 0;
@@ -198,7 +198,8 @@ public function updatePatient(){
       ]);
 		  $output = json_encode(array('addpatient_config_report' => $addpatient_config ));
 		  echo $output;
-    }else
+    }
+    else
     echo "no patient-id";
   	
     }
