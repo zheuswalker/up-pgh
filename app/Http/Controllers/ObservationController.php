@@ -89,17 +89,59 @@ class ObservationController extends BaseController
       if(count($patient_limits) > 0) {
         foreach($patient_limits as $row) { 
           switch ($code){
-              case "8310-5":{
+              case "8310-5":{ //Temperature
                 if($value>$row->rpc_temperature_upper)
                   \DB::SELECT("call sp_addnotif(?,?,?,?)",[$patientid,2,"8310-5",$row->id]);
                 if($value<$row->rpc_temperature_lower)
                   \DB::SELECT("call sp_addnotif(?,?,?,?)",[$patientid,1,"8310-5",$row->id]);
               }
-          }  
-        }
-      }
-      }
-    }
+              case "76282-3":{ //Heart Rate
+                if($value>$row->rpc_heartrate_upper_bpm)
+                  \DB::SELECT("call sp_addnotif(?,?,?,?)",[$patientid,2,"76282-3",$row->id]);
+                if($value<$row->rpc_heartrate_lower_bpm)
+                  \DB::SELECT("call sp_addnotif(?,?,?,?)",[$patientid,1,"76282-3",$row->id]);
+              }
+              case "8889-8":{ //Pulse Rate
+                if($value>$row->rpc_pulserate_upper_bpm)
+                  \DB::SELECT("call sp_addnotif(?,?,?,?)",[$patientid,2,"8889-8",$row->id]);
+                if($value<$row->rpc_pulserate_lower_bpm)
+                  \DB::SELECT("call sp_addnotif(?,?,?,?)",[$patientid,1,"8889-8",$row->id]);
+              } 
+              case "8480-6":{ //Systolic BP
+                if($value>$row->rpc_bp_systolic_upper)
+                  \DB::SELECT("call sp_addnotif(?,?,?,?)",[$patientid,2,"8480-6",$row->id]);
+                if($value<$row->rpc_bp_systolic_lower)
+                  \DB::SELECT("call sp_addnotif(?,?,?,?)",[$patientid,1,"8480-6",$row->id]);
+              } 
+              case "8462-4":{ //DIastolic BP
+                if($value>$row->rpc_bp_diastolic_upper)
+                  \DB::SELECT("call sp_addnotif(?,?,?,?)",[$patientid,2,"8462-4",$row->id]);
+                if($value<$row->rpc_bp_diastolic_lower)
+                  \DB::SELECT("call sp_addnotif(?,?,?,?)",[$patientid,1,"8462-4",$row->id]);
+              }  
+              case "59407-7":{ //SPO2 / Oxygen Saturation
+                if($value>$row->rpc_oxygen_upper_saturation)
+                  \DB::SELECT("call sp_addnotif(?,?,?,?)",[$patientid,2,"59407-7",$row->id]);
+                if($value<$row->rpc_oxygen_lower_saturation)
+                  \DB::SELECT("call sp_addnotif(?,?,?,?)",[$patientid,1,"59407-7",$row->id]);
+              }
+             case "76270-8":{ //Respiration Rate (secondary)
+                if($value>$row->rpc_respiratory_upper_rpm)
+                  \DB::SELECT("call sp_addnotif(?,?,?,?)",[$patientid,2,"76270-8",$row->id]);
+                if($value<$row->rpc_respiratory_upper_rpm)
+                  \DB::SELECT("call sp_addnotif(?,?,?,?)",[$patientid,1,"76270-8",$row->id]);
+              }
+             case "76171-8":{ //Respiration Rate (primary)
+                if($value>$row->rpc_respiratory_upper_rpm)
+                  \DB::SELECT("call sp_addnotif(?,?,?,?)",[$patientid,2,"76171-8",$row->id]);
+                if($value<$row->rpc_respiratory_upper_rpm)
+                  \DB::SELECT("call sp_addnotif(?,?,?,?)",[$patientid,1,"76171-8",$row->id]);
+              }       
+            } //end switch  
+          }//end foreach patient_limits
+        }// end patient_limit counts
+      } //end patient_obs
+    } //end patient_obs_count
   }
 
  public function patientTimeFrame(){
