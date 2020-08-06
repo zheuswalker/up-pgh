@@ -16,8 +16,10 @@ class PatientController extends BaseController
     public function getPatientObservation(){
      	$patient_observation = \DB::SELECT("call sp_getPatientObservations()");
       $patient_ecgbos = \DB::SELECT("call sp_getECGObs()");
+      $getNotifications = \DB::SELECT("call sp_getNotifications()");
 
    echo json_encode(array('patientBasicObservation' =>$patient_observation));
+   echo json_encode(array('Notifications' =>$getNotifications));
 //   echo json_encode(array('patientECGObservation' =>$patient_ecgbos));
      
     }
@@ -111,7 +113,7 @@ public function updatePatient(){
     public function addPatientConfig(){
 
   		$patientid = $_POST['patientid'];
-      if(isset($_POST['patientid'])){
+      if(isset($_POST['patientid'])&&$_POST['patientid']!=''){
         if(isset($_POST['ecg_st_msec'])&&$_POST['ecg_st_msec']!='')
       		$ecg_st_msec = $_POST['ecg_st_msec'];
         else
