@@ -81,7 +81,7 @@ class ObservationController extends BaseController
       }
   
       //get patient upper and lower limit
-      $patientid = substr($patientid, strpos($patientid,"/")+1, strlen($patientid));
+      $patientid = substr($subject, strpos($subject,"/")+1, strlen($subject));
       $patient_limits = \DB::SELECT("call sp_get_patient_config(?)",[$patientid]);
       if(count($patient_limits) > 0) {
         foreach($patient_limits as $row) { 
