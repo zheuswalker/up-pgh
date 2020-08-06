@@ -16,8 +16,10 @@ class PatientController extends BaseController
     public function getPatientObservation(){
      	$patient_observation = \DB::SELECT("call sp_getPatientObservations()");
       $patient_ecgbos = \DB::SELECT("call sp_getECGObs()");
+      $getNotifications = \DB::SELECT("call sp_getNotifications()");
 
    echo json_encode(array('patientBasicObservation' =>$patient_observation));
+   echo json_encode(array('Notifications' =>$getNotifications));
 //   echo json_encode(array('patientECGObservation' =>$patient_ecgbos));
      
     }
