@@ -43,6 +43,7 @@ class ObservationController extends BaseController
       
       $addpatient_observation = \DB::SELECT("call sp_addpatient_observation(?,?,?,?,?,?,?,?,?,?,?)",[$id, $code, $value, $subject, $effective,$status,$error, $errorsystem,$valuesystem,$valuecode,$valueunit]);
       $addpatient_observation_report = json_encode(array('addpatient_observation_report' => $addpatient_observation ));
+      $this->saveNotif($addpatient_observation, $subject, $code, $value); 
       echo $addpatient_observation_report;
       
       }catch(\Exception $ex){
@@ -56,6 +57,7 @@ class ObservationController extends BaseController
       $valueunit = $obsarray_content->valueQuantity->unit;
       $addpatient_observation = \DB::SELECT("call sp_addpatient_observation(?,?,?,?,?,?,?,?,?,?,?)",[$id, $code, $value, $subject, $effective,$status,$error, $errorsystem,$valuesystem,$valuecode,$valueunit]);
       $addpatient_observation_report = json_encode(array('addpatient_observation_report' => $addpatient_observation ));
+      $this->saveNotif($addpatient_observation, $subject, $code, $value); 
       echo $addpatient_observation_report;
     }else if(isset($obsarray_content->valueSampledData->data)){
 
@@ -79,6 +81,10 @@ class ObservationController extends BaseController
 
 
       }
+    
+  }
+
+public function saveNotif($addpatient_observation, $subject, $code, $value){
       
       //get patient upper and lower limit
       if(count($addpatient_observation) > 0) {
@@ -149,7 +155,7 @@ class ObservationController extends BaseController
         }// end patient_limit counts
       } //end patient_obs
     } //end patient_obs_count
-  }
+}
 
  public function patientTimeFrame(){
   $patientid = trim($_GET['patient']);
