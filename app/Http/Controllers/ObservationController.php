@@ -80,6 +80,22 @@ class ObservationController extends BaseController
 
       }
   
+      //get patient upper and lower limit
+      $patientid = substr($patientid, strpos($patientid,"/")+1, strlen($patientid));
+      $patient_limits = \DB::SELECT("call sp_get_patient_config(?)",[$patientid]);
+      if(count($patient_limits) > 0) {
+        foreach($patient_limits as $row) { 
+          switch ($code){
+              case "8310-5":{
+                if($value>$row->rpc_temperature_upper)
+                  \DB::SELECT("call sp_addnotif(?,?,?)",[$patientid,2,"8310-5"]);
+                if($value<$row->rpc_temperature_lower)
+                  \DB::SELECT("call sp_addnotif(?,?,?)",[$patientid,1,"8310-5"]);
+              }
+          }  
+        }
+      }
+      
   }
 
  public function patientTimeFrame(){
