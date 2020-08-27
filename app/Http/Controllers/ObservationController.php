@@ -8,7 +8,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use DB;
 use Illuminate\Http\Request;
-
+use GuzzleHttp\Client;
 
 class ObservationController extends BaseController
 {
@@ -69,7 +69,18 @@ class ObservationController extends BaseController
       $factor = $obsarray_content->valueSampledData->factor;
       $dimensions = $obsarray_content->valueSampledData->dimensions;
       $data = $obsarray_content->valueSampledData->data;
-      $addpatient_observation = \DB::SELECT("call sp_insertECG(?,?,?,?,?,?,?,?,?,?)",[$id, $status, $valuesystem, $subject, $effective,$originvalue,$period, $factor,$dimensions,$data]);
+        $client = new Client();
+        $res = $client->request('POST', 'http://206.189.87.169:5000/analyze_ecg', [
+            'form_params' => [
+                'period' => $period,
+                'factor' => $factor,
+                'data' => $data,
+            ]
+        ]);
+        echo $res->getStatusCode();
+        echo $res->getHeader('content-type');
+        $qt = $res->getBody();
+      $addpatient_observation = \DB::SELECT("call sp_insertECG(?,?,?,?,?,?,?,?,?,?,?)",[$id, $status, $valuesystem, $subject, $effective,$originvalue,$period, $factor,$dimensions,$data,$qt]);
       $addpatient_observation_report = json_encode(array('addpatient_observation_report' => $addpatient_observation ));
       echo $addpatient_observation_report;
 
