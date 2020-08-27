@@ -77,8 +77,6 @@ class ObservationController extends BaseController
                 'data' => $data,
             ]
         ]);
-        echo $res->getStatusCode();
-        echo $res->getHeader('content-type');
         $qt = $res->getBody();
       $addpatient_observation = \DB::SELECT("call sp_insertECG(?,?,?,?,?,?,?,?,?,?,?)",[$id, $status, $valuesystem, $subject, $effective,$originvalue,$period, $factor,$dimensions,$data,$qt]);
       $addpatient_observation_report = json_encode(array('addpatient_observation_report' => $addpatient_observation ));
