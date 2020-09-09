@@ -183,9 +183,9 @@ public function saveNotif($addpatient_observation, $subject, $code, $value){
     'total' => 1,
     'entry' =>[[
     'intent' => "order",
-    'codeCodeableConcept'=> ['coding'=>[['code'=>"70665002", 'System'=>"http://snomed.info/sct"]]],
-    'subject' => $patientinfo,
-    'occurenceTiming'=>array("repeat"=>array("frequency"=>1,"period"=>$period, "periodunit"=>"m"))
+    'codeCodeableConcept'=> ['coding'=>[['code'=>"258057004", 'System'=>"http://snomed.info/sct"]]],
+    'subject' => ['reference'=>$patientinfo],
+    'occurenceTiming'=>array("repeat"=>array("frequency"=>1,"period"=>$period, "periodUnit"=>"m"))
     ]]   
 ];
 
