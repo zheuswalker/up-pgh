@@ -110,6 +110,12 @@ public function sendrequestBP(){
   \DB::SELECT("call  sp_postBP(?,?)",[$requestid,$bpvalue]);  
 }
 
+public function getRequestBPValue(){
+  $requestid = trim($_POST['requestid']);
+  $bpvalue = \DB::SELECT("call  sp_getBPValue(?)",[$requestid]);
+  echo json_encode(array("BPValue" => $bpvalue));
+}
+
 public function saveNotif($addpatient_observation, $subject, $code, $value){
       
       //get patient upper and lower limit
