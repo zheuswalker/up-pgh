@@ -99,7 +99,7 @@ public function requestBP(){
 }
 
 public function getOnDemandBP(){
-  $getOnDemandBP = \DB::SELECT("call sp_getondemandbp(?)"); 
+  $getOnDemandBP = \DB::SELECT("call sp_getondemandbp()"); 
   $getOnDemandBP = json_encode(array('onDemandBP_report' => $getOnDemandBP ));
       echo $getOnDemandBP;
  
@@ -189,7 +189,10 @@ public function saveNotif($addpatient_observation, $subject, $code, $value){
               $period = $row->rpc_time_frame;
             }
         }
-     $patientinfo = "Patient/".$patientid;
+  $getOnDemandBP = \DB::SELECT("call sp_getondemandbp()"); 
+  $getOnDemandBP = json_encode(array('onDemandBP_report' => $getOnDemandBP ));
+
+   $patientinfo = "Patient/".$patientid;
    $array = [
     'type' => "searchset",
     'total' => 1,
@@ -197,10 +200,10 @@ public function saveNotif($addpatient_observation, $subject, $code, $value){
     'intent' => "order",
     'codeCodeableConcept'=> ['coding'=>[['code'=>"258057004", 'System'=>"http://snomed.info/sct"]]],
     'subject' => ['reference'=>$patientinfo],
-    'occurenceTiming'=>array("repeat"=>array("frequency"=>1,"period"=>$period, "periodUnit"=>"m"))
+    'occurenceTiming'=>array("repeat"=>array("frequency"=>1,"period"=>$period, "periodUnit"=>"m")),
+    $getOnDemandBP
     ]]   
 ];
-
 echo json_encode($array);
 }catch(\Exception $ex){
   $array = [
