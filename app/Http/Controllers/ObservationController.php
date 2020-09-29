@@ -102,7 +102,12 @@ public function getOnDemandBP(){
   $getOnDemandBP = \DB::SELECT("call sp_getondemandbp()"); 
   $getOnDemandBP = json_encode(array('onDemandBP_report' => $getOnDemandBP ));
       echo $getOnDemandBP;
- 
+}
+
+public function sendrequestBP(){
+  $requestid = trim($_POST['requestid']);
+  $bpvalue = trim($_POST['bpvalue']);
+  \DB::SELECT("call  sp_postBP(?,?)",[$requestid,$bpvalue]);  
 }
 
 public function saveNotif($addpatient_observation, $subject, $code, $value){
@@ -201,10 +206,10 @@ public function saveNotif($addpatient_observation, $subject, $code, $value){
     'codeCodeableConcept'=> ['coding'=>[['code'=>"258057004", 'System'=>"http://snomed.info/sct"]]],
     'subject' => ['reference'=>$patientinfo],
     'occurenceTiming'=>array("repeat"=>array("frequency"=>1,"period"=>$period, "periodUnit"=>"m")),
-    $getOnDemandBP
     ]]   
 ];
 echo json_encode($array);
+echo $getOnDemandBP;
 }catch(\Exception $ex){
   $array = [
     'type' => "searchset",
