@@ -110,6 +110,12 @@ public function sendrequestBP(){
   \DB::SELECT("call  sp_postBP(?,?)",[$requestid,$bpvalue]);  
 }
 
+public function getRequestBPValue(){
+  $requestid = trim($_POST['requestid']);
+  $bpvalue = \DB::SELECT("call  sp_getBPValue(?)",[$requestid]);
+  echo json_encode(array("BPValue" => $bpvalue));
+}
+
 public function saveNotif($addpatient_observation, $subject, $code, $value){
       
       //get patient upper and lower limit
@@ -205,7 +211,7 @@ public function saveNotif($addpatient_observation, $subject, $code, $value){
     'intent' => "order",
     'codeCodeableConcept'=> ['coding'=>[['code'=>"258057004", 'System'=>"http://snomed.info/sct"]]],
     'subject' => ['reference'=>$patientinfo],
-    'occurenceTiming'=>array("repeat"=>array("frequency"=>1,"period"=>$period, "periodUnit"=>"m")),
+    'occurenceTiming'=>array("repeat"=>array("frequency"=>1,"period"=>$period, "periodUnit"=>"m"))
     ]]   
 ];
 echo json_encode($array);

@@ -67,3 +67,4 @@ Route::post('/getPatientRangedObservation','ObservationController@getPatientRang
 Route::post('/requestBP','ObservationController@requestBP');
 Route::post('/getOnDemandBP','ObservationController@getOnDemandBP');
 Route::post('/sendrequestBP','ObservationController@sendrequestBP');
+Route::post('/getRequestBPValue','ObservationController@getRequestBPValue');

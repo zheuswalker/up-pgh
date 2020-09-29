@@ -43,7 +43,8 @@ class VerifyCsrfToken extends Middleware
     'getPatientRangedObservation',
     'requestBP',
     'getOnDemandBP',
-    'sendrequestBP'
+    'sendrequestBP',
+    'getRequestBPValue'
 
     ];
 }
