@@ -75,9 +75,9 @@ public function get_monitor(Request $request){
 
  }
 
- public function get_monitorPatients($monitorid){
+ public function get_monitorPatients($monitorname){
 
-    $getPatientList = \DB::SELECT("call sp_getmonitorpatientlist(?)",[$monitorid]);
+    $getPatientList = \DB::SELECT("call sp_getmonitorpatientlist(?)",[$monitorname]);
       $getPatientList = json_encode( $getPatientList );
       echo $getPatientList;
 

@@ -54,7 +54,7 @@ Route::post('/delete_ward','WardController@delete_ward');
 Route::post('/update_ward','WardController@update_ward');
 Route::post('/get_ward','WardController@get_ward');
 
-Route::get('/monitorWithPatient/{monitorid}','MonitorController@get_monitorPatients');
+Route::get('/monitorWithPatient/{monitorname}','MonitorController@get_monitorPatients');
 
 Route::post('/create_statuscode','ObservationController@create_statuscode');
 Route::get('/filter_statuscode','ObservationController@filter_statuscode');
