@@ -64,3 +64,4 @@ Route::get('/PatientConfig/{patientid}','PatientController@getPatientConfig');
 Route::get('/DeviceRequest','ObservationController@patientTimeFrame');
 
 Route::post('/getPatientRangedObservation','ObservationController@getPatientRangedObservation');
+Route::post('/requestBP','ObservationController@requestBP');

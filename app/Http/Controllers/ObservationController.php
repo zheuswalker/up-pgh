@@ -93,6 +93,11 @@ class ObservationController extends BaseController
     
   }
 
+public function requestBP(){
+  $patientid = trim($_POST['patientid']);
+  \DB::SELECT("call  sp_requestbp(?)",[$patientid]);  
+}
+
 public function saveNotif($addpatient_observation, $subject, $code, $value){
       
       //get patient upper and lower limit
