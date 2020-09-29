@@ -41,7 +41,8 @@ class VerifyCsrfToken extends Middleware
     '/PatientConfig/{patientid}',
     'DeviceRequest',
     'getPatientRangedObservation',
-    'requestBP'
+    'requestBP',
+    'getOnDemandBP'
 
     ];
 }

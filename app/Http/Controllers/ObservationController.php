@@ -98,6 +98,13 @@ public function requestBP(){
   \DB::SELECT("call  sp_requestbp(?)",[$patientid]);  
 }
 
+public function getOnDemandBP(){
+  $getOnDemandBP = \DB::SELECT("call sp_getondemandbp(?)"); 
+  $getOnDemandBP = json_encode(array('onDemandBP_report' => $getOnDemandBP ));
+      echo $getOnDemandBP;
+ 
+}
+
 public function saveNotif($addpatient_observation, $subject, $code, $value){
       
       //get patient upper and lower limit
