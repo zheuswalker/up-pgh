@@ -180,7 +180,7 @@ public function saveNotif($addpatient_observation, $subject, $code, $value){
 
  public function patientTimeFrame(){
   $patientid = trim($_GET['patient']);
-  try{
+ // try{
   $patientid = substr($patientid, strpos($patientid,"/")+1, strlen($patientid));
      $patient_timeframe = \DB::SELECT("call sp_getpatienttimeframe(?)",[$patientid]);
   $period;
@@ -200,19 +200,19 @@ public function saveNotif($addpatient_observation, $subject, $code, $value){
     'intent' => "order",
     'codeCodeableConcept'=> ['coding'=>[['code'=>"258057004", 'System'=>"http://snomed.info/sct"]]],
     'subject' => ['reference'=>$patientinfo],
-    'occurenceTiming'=>array("repeat"=>array("frequency"=>1,"period"=>$period, "periodUnit"=>"m")),
-    $getOnDemandBP
+    'occurenceTiming'=>array("repeat"=>array("frequency"=>1,"period"=>$period, "periodUnit"=>"m"))
     ]]   
 ];
 echo json_encode($array);
-}catch(\Exception $ex){
-  $array = [
-    'type' => "searchset",
-    'total' => 0,
-    'entry' => []
-  ];
-  echo json_encode($array);
-}
+echo $getOnDemandBP;
+//}catch(\Exception $ex){
+  //$array = [
+    //'type' => "searchset",
+   // 'total' => 0,
+    //'entry' => []
+  //];
+  //echo json_encode($array);
+//}
      
     }
 
