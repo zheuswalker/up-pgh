@@ -66,3 +66,4 @@ Route::get('/DeviceRequest','ObservationController@patientTimeFrame');
 Route::post('/getPatientRangedObservation','ObservationController@getPatientRangedObservation');
 Route::post('/requestBP','ObservationController@requestBP');
 Route::post('/getOnDemandBP','ObservationController@getOnDemandBP');
+Route::post('/sendrequestBP','ObservationController@sendrequestBP');

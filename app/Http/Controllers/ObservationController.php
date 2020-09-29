@@ -1,4 +1,4 @@
-<?php
+?<?php
 
 namespace App\Http\Controllers;
 
@@ -102,7 +102,12 @@ public function getOnDemandBP(){
   $getOnDemandBP = \DB::SELECT("call sp_getondemandbp()"); 
   $getOnDemandBP = json_encode(array('onDemandBP_report' => $getOnDemandBP ));
       echo $getOnDemandBP;
- 
+}
+
+public function sendrequestBP(){
+  $requestid = trim($_POST['requestid']);
+  $bpvalue = trim($_POST['bpvalue']);
+  \DB::SELECT("call  sp_postBP(?,?)",[$requestid,$bpvalue]);  
 }
 
 public function saveNotif($addpatient_observation, $subject, $code, $value){
@@ -213,7 +218,7 @@ echo $getOnDemandBP;
   //];
   //echo json_encode($array);
 //}
-     
+
     }
 
     public function getPatientRangedObservation(){
