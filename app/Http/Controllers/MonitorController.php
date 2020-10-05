@@ -37,6 +37,7 @@ public function remove_patient_toMonitor(Request $request){
 
  public function create_monitor(Request $request){
 
+  try{
  	$monitorname = $_POST['monitorname'];
  	$monitordesc = $_POST['monitordesc'];
  	$wardid = $_POST['wardid'];
@@ -44,6 +45,9 @@ public function remove_patient_toMonitor(Request $request){
   	$create_monitor = \DB::SELECT("call sp_addMonitor(?,?,?,?)",[$monitorname, $monitordesc,$wardid,$slotcount]);
       $create_monitor_report = json_encode(array('create_monitor_report' => $create_monitor ));
       echo $create_monitor_report;
+  }catch(\Exception $ex){
+          echo "fail";
+      }
 
  }
  public function delete_monitor(Request $request){
