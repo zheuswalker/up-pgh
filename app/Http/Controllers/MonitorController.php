@@ -46,7 +46,7 @@ public function remove_patient_toMonitor(Request $request){
       $create_monitor_report = json_encode(array('create_monitor_report' => $create_monitor ));
       echo $create_monitor_report;
   }catch(\Exception $ex){
-          echo "fail";
+         echo $ex->getMessage();
       }
 
  }
@@ -60,6 +60,8 @@ public function remove_patient_toMonitor(Request $request){
  }
  public function update_monitor(Request $request){
 
+
+  try{
  	$monitorid = $_POST['monitorid'];
  	$monitorname = $_POST['monitorname'];
  	$monitordesc = $_POST['monitordesc'];
@@ -68,6 +70,9 @@ public function remove_patient_toMonitor(Request $request){
   	$update_monitor = \DB::SELECT("call sp_UpdateMonitor(?,?,?,?,?)",[$monitorid,$monitorname, $monitordesc,$wardid,$maxslot]);
       $update_monitor_report = json_encode(array('update_monitor_report' => $update_monitor ));
       echo $update_monitor_report;
+       }catch(\Exception $ex){
+          echo $ex->getMessage();
+      }
 
  }
 
