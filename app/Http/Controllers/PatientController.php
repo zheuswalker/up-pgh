@@ -33,13 +33,14 @@ echo "]";
      
 
   	public function addPatient(){
+
+      //patient basic information
   		$patientfname = $_POST['patientfname'];
   		$patientmname = $_POST['patientmname'];
   		$patientlname = $_POST['patientlname'];
       $birthday = $_POST['birthday'];
       $gender = $_POST['gender'];
       $age = $_POST['age'];
-      $covid19 = $_POST['covid19'];
       $remarks = $_POST['remarks'];
       $address = $_POST['address'];
       $city = $_POST['city'];
@@ -55,10 +56,15 @@ echo "]";
       $emcontactnumber = $_POST['emcontactnumber'];
       $emrelationship = $_POST['emrelationship'];
       $civil_status = $_POST['civil_status'];
-      $classification = $_POST['classification'];
   		$bed_no = $_POST['bed_no'];
+
+      //patient status information
+      $covidcase = $_POST['covidcase'];
+      $admission = $_POST['admission'];
+      $classification = $_POST['classification'];
+
   		$addpatient = \DB::SELECT("call sp_addpatient(?,?,?,?,?,?,?,?,?,?,?,?
-        ,?,?,?,?,?,?,?,?,?,?,?,?)",[$patientfname, $patientmname, $patientlname, $birthday,$gender,$age, $covid19, $remarks, $address, $city,$country,$contact, $email, $sss_gsis, $philhealth, $hmo,$admission,$ward,$emcontactname,$emcontactnumber,$emrelationship,$civil_status,$classification,$bed_no]);
+        ,?,?,?,?,?,?,?,?,?,?,?)",[$patientfname, $patientmname, $patientlname, $birthday,$gender,$age, $remarks, $address, $city,$country,$contact, $email, $sss_gsis, $philhealth, $hmo,$ward,$emcontactname,$emcontactnumber,$emrelationship,$civil_status,$bed_no, $covidcase, $admission, $classification]);
 		$output = json_encode(array('addpatient_report' => $addpatient ));
 		echo $output;
     
