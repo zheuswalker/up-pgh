@@ -64,7 +64,7 @@ echo "]";
       $classification = $_POST['classification'];
 
   		$addpatient = \DB::SELECT("call sp_addpatient(?,?,?,?,?,?,?,?,?,?,?,?
-        ,?,?,?,?,?,?,?,?,?,?,?)",[$patientfname, $patientmname, $patientlname, $birthday,$gender,$age, $remarks, $address, $city,$country,$contact, $email, $sss_gsis, $philhealth, $hmo,$ward,$emcontactname,$emcontactnumber,$emrelationship,$civil_status,$bed_no, $covidcase, $admission, $classification]);
+        ,?,?,?,?,?,?,?,?,?,?,?,?)",[$patientfname, $patientmname, $patientlname, $birthday,$gender,$age, $remarks, $address, $city,$country,$contact, $email, $sss_gsis, $philhealth, $hmo,$ward,$emcontactname,$emcontactnumber,$emrelationship,$civil_status,$bed_no, $covidcase, $admission, $classification]);
 		$output = json_encode(array('addpatient_report' => $addpatient ));
 		echo $output;
     
