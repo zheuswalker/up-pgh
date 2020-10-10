@@ -251,10 +251,6 @@ echo json_encode($que);
     'birthdate'=>$birthdate
     
 ];
-$patientdata = \DB::SELECT("select *,
-(select rps_name from r_patient_status_type where rps_id = (select rps_class from r_patient_status where rps_pid=rpi_patientid)) classification,
-(select rps_name from r_patient_status_type where rps_id = (select rps_case from r_patient_status where rps_pid=rpi_patientid)) 'Covid Case',
-(select rps_name from r_patient_status_type where rps_id = (select rps_admission from r_patient_status where rps_pid=rpi_patientid)) 'Admission Status'  from r_patient_info where rpi_patientid = ?",[$patientid]);
 
 echo json_encode($array);
     
@@ -262,7 +258,10 @@ echo json_encode($array);
 
 public function getPatientFullDetails($patientid){
 
-  $patientdata = \DB::SELECT("select *  from r_patient_info where rpi_patientid = ?",[$patientid]);
+$patientdata = \DB::SELECT("select *,
+(select rps_name from r_patient_status_type where rps_id = (select rps_class from r_patient_status where rps_pid=rpi_patientid)) classification,
+(select rps_name from r_patient_status_type where rps_id = (select rps_case from r_patient_status where rps_pid=rpi_patientid)) 'Covid Case',
+(select rps_name from r_patient_status_type where rps_id = (select rps_admission from r_patient_status where rps_pid=rpi_patientid)) 'Admission Status'  from r_patient_info where rpi_patientid = ?",[$patientid]);
 
 $output = json_encode(array('PatientData_report' => $patientdata ));
     echo $output;
