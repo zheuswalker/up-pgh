@@ -78,6 +78,7 @@ public function deletePatient(){
     
 }
 
+
 public function updatePatient(){
       $patientfname = $_POST['patientfname'];
       $patientmname = $_POST['patientmname'];
@@ -232,13 +233,13 @@ echo json_encode($que);
     }
 
     public function patientDetails($patientid){
-          $addpatient_config = \DB::SELECT("select *, concat(rpi_patientfname, ' ', rpi_patientmname, ' ', rpi_patientlname ) name , rpi_gender,  DATE_FORMAT(str_to_date(rpi_birthday, '%m/%d/%Y' ), '%Y-%m-%d')  rpi_birthday from r_patient_info where rpi_patientid = ?",[$patientid]);
+          $patientDetails = \DB::SELECT("select *, concat(rpi_patientfname, ' ', rpi_patientmname, ' ', rpi_patientlname ) name , rpi_gender,  DATE_FORMAT(str_to_date(rpi_birthday, '%m/%d/%Y' ), '%Y-%m-%d')  rpi_birthday from r_patient_info where rpi_patientid = ?",[$patientid]);
   $name;
   $gender;
   $birthdate;
 
-  if(count($addpatient_config) > 0) {
-            foreach($addpatient_config as $row) { 
+  if(count($patientDetails) > 0) {
+            foreach($patientDetails as $row) { 
               $name = $row->name;  $gender =$row->rpi_gender; $birthdate=$row->rpi_birthday;}
         }
      
@@ -250,7 +251,10 @@ echo json_encode($que);
     'birthdate'=>$birthdate
     
 ];
-$patientdata = \DB::SELECT("select *  from r_patient_info where rpi_patientid = ?",[$patientid]);
+$patientdata = \DB::SELECT("select *,
+(select rps_name from r_patient_status_type where rps_id = (select rps_class from r_patient_status where rps_pid=rpi_patientid)) classification,
+(select rps_name from r_patient_status_type where rps_id = (select rps_case from r_patient_status where rps_pid=rpi_patientid)) 'Covid Case',
+(select rps_name from r_patient_status_type where rps_id = (select rps_admission from r_patient_status where rps_pid=rpi_patientid)) 'Admission Status'  from r_patient_info where rpi_patientid = ?",[$patientid]);
 
 echo json_encode($array);
     
