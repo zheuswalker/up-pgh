@@ -103,18 +103,21 @@ public function updatePatient(){
       $civil_status = $_POST['civil_status'];
       $bed_no = $_POST['bed_no'];
 
-      if(isset($_POST['covidcase'])&&$_POST['covidcase']!='')
+      if(isset($_POST['covidcase'])&&$_POST['covidcase']!=''&&
+      $_POST['covidcase']!='null')
           $covidcase = $_POST['covidcase'];
         else
           $covidcase = 15;
 
 
-      if(isset($_POST['classification'])&&$_POST['classification']!='')
+      if(isset($_POST['classification'])&&$_POST['classification']!=''&&
+      $_POST['classification']!='null')
           $classification = $_POST['classification'];
         else
           $classification = 20;
 
-      if(isset($_POST['admissionstatus'])&&$_POST['admissionstatus']!='')
+      if(isset($_POST['admissionstatus'])&&$_POST['admissionstatus']!=''&&
+      $_POST['admissionstatus']!='null')
           $admissionstatus = $_POST['admissionstatus'];
         else
           $admissionstatus = 1;
