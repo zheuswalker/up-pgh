@@ -114,11 +114,12 @@ public function updatePatient(){
         else
           $classification = 20;
 
-      if(isset($_POST['admissiondate'])&&$_POST['admissiondate']!='')
-          $admissiondate = $_POST['admissiondate'];
+      if(isset($_POST['admissionstatus'])&&$_POST['admissionstatus']!='')
+          $admissionstatus = $_POST['admissionstatus'];
         else
-          $admissiondate = 1;
+          $admissionstatus = 1;
 
+        $admissiondate = $_POST['admissiondate'];
       $updatepatient = \DB::SELECT("call sp_updatepatientinfo(?,?,?,?,?,?,?,?,?,?,?,?
         ,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",[$patientfname, $patientmname, $patientlname, $birthday,$gender,$age, $remarks, $address, $city,$country,$contact, $email, $sss_gsis, $philhealth, $hmo,$ward,$emcontactname,$emcontactnumber,$emrelationship, $patientid,$civil_status,$bed_no, $classification, $covidcase, $admissionstatus, $admissiondate]);
 
