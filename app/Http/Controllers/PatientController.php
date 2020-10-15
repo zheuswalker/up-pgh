@@ -103,11 +103,21 @@ public function updatePatient(){
       $civil_status = $_POST['civil_status'];
       $bed_no = $_POST['bed_no'];
 
-       //patient status information
-      $covidcase = $_POST['covidcase'];
-      $admissionstatus = $_POST['admissionstatus'];
-      $classification = $_POST['classification'];
-      $admissiondate = $_POST['admissiondate'];
+      if(isset($_POST['covidcase'])&&$_POST['covidcase']!='')
+          $covidcase = $_POST['covidcase'];
+        else
+          $covidcase = 15;
+
+
+      if(isset($_POST['classification'])&&$_POST['classification']!='')
+          $covidcase = $_POST['classification'];
+        else
+          $covidcase = 20;
+
+      if(isset($_POST['admissiondate'])&&$_POST['admissiondate']!='')
+          $covidcase = $_POST['admissiondate'];
+        else
+          $covidcase = 1;
 
       $updatepatient = \DB::SELECT("call sp_updatepatientinfo(?,?,?,?,?,?,?,?,?,?,?,?
         ,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",[$patientfname, $patientmname, $patientlname, $birthday,$gender,$age, $remarks, $address, $city,$country,$contact, $email, $sss_gsis, $philhealth, $hmo,$ward,$emcontactname,$emcontactnumber,$emrelationship, $patientid,$civil_status,$bed_no, $classification, $covidcase, $admissionstatus, $admissiondate]);
