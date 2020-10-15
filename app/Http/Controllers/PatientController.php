@@ -60,7 +60,7 @@ echo "]";
 
       //patient status information
       $covidcase = $_POST['covidcase'];
-      $admission = $_POST['admission'];
+      $admission = $_POST['admissionstatus'];
       $classification = $_POST['classification'];
 
   		$addpatient = \DB::SELECT("call sp_addpatient(?,?,?,?,?,?,?,?,?,?,?,?
@@ -86,7 +86,6 @@ public function updatePatient(){
       $birthday = $_POST['birthday'];
       $gender = $_POST['gender'];
       $age = $_POST['age'];
-      $covid19 = $_POST['covid19'];
       $remarks = $_POST['remarks'];
       $address = $_POST['address'];
       $city = $_POST['city'];
@@ -96,18 +95,23 @@ public function updatePatient(){
       $sss_gsis = $_POST['sss_gsis'];
       $philhealth = $_POST['philhealth'];
       $hmo = $_POST['hmo'];
-      $admission = $_POST['admission'];
       $ward = $_POST['ward'];
       $emcontactname = $_POST['emcontactname'];
       $emcontactnumber = $_POST['emcontactnumber'];
       $emrelationship = $_POST['emrelationship'];
       $patientid = $_POST['patientid'];
       $civil_status = $_POST['civil_status'];
-      $classification = $_POST['classification'];
       $bed_no = $_POST['bed_no'];
 
-      $updatepatient = \DB::SELECT("call  sp_updatepatient(?,?,?,?,?,?,?,?,?,?,?,
-        ?,?,?,?,?,?,?,?,?,?,?,?,?,?)",[$patientfname, $patientmname, $patientlname, $birthday,$gender,$age, $covid19, $remarks, $address, $city,$country,$contact, $email, $sss_gsis, $philhealth, $hmo,$admission,$ward,$emcontactname,$emcontactnumber,$emrelationship,$patientid,$civil_status,$classification,$bed_no]);
+       //patient status information
+      $covidcase = $_POST['covidcase'];
+      $admission = $_POST['admissionstatus'];
+      $classification = $_POST['classification'];
+      $admissiondate = $_POST['admissiondate'];
+
+      $updatepatient = \DB::SELECT("call sp_updatepatient(?,?,?,?,?,?,?,?,?,?,?,?
+        ,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",[$patientfname, $patientmname, $patientlname, $birthday,$gender,$age, $remarks, $address, $city,$country,$contact, $email, $sss_gsis, $philhealth, $hmo,$ward,$emcontactname,$emcontactnumber,$emrelationship, $patientid,$civil_status,$bed_no, $classification, $covidcase, $admissionstatus, $admissiondate]);
+
     $output = json_encode(array('updatepatient_report' => $updatepatient ));
     echo $output;
     
