@@ -95,7 +95,8 @@ class ObservationController extends BaseController
 
 public function requestBP(){
   $patientid = trim($_POST['patientid']);
-  \DB::SELECT("call  sp_requestbp(?)",[$patientid]);  
+  $requestid = \DB::SELECT("call  sp_requestbp(?)",[$patientid]);  
+  echo json_encode(array("RequestResult" => $requestid));
 }
 
 public function getOnDemandBP(){
@@ -191,7 +192,7 @@ public function saveNotif($addpatient_observation, $subject, $code, $value){
 
  public function patientTimeFrame(){
   $patientid = trim($_GET['patient']);
-  try{
+ // try{
   $patientid = substr($patientid, strpos($patientid,"/")+1, strlen($patientid));
      $patient_timeframe = \DB::SELECT("call sp_getpatienttimeframe(?)",[$patientid]);
   $period;
@@ -214,17 +215,24 @@ public function saveNotif($addpatient_observation, $subject, $code, $value){
     'occurenceTiming'=>array("repeat"=>array("frequency"=>1,"period"=>$period, "periodUnit"=>"m"))
     ]]   
 ];
-echo json_encode($array);
-echo $getOnDemandBP;
-}catch(\Exception $ex){
-  $array = [
-    'type' => "searchset",
-    'total' => 0,
-    'entry' => []
-  ];
-  echo json_encode($array);
-}
-     
+$myObj = new \stdClass();
+$myObj->dr = $array;
+$myObj->bp = \DB::SELECT("call sp_getondemandbp()"); 
+
+echo json_encode($myObj);
+
+//echo json_encode($array);
+//echo $getOnDemandBP;
+
+//}catch(\Exception $ex){
+  //$array = [
+    //'type' => "searchset",
+   // 'total' => 0,
+    //'entry' => []
+  //];
+  //echo json_encode($array);
+//}
+
     }
 
     public function getPatientRangedObservation(){
