@@ -105,12 +105,12 @@ public function updatePatient(){
 
        //patient status information
       $covidcase = $_POST['covidcase'];
-      $admission = $_POST['admissionstatus'];
+      $admissionstatus = $_POST['admissionstatus'];
       $classification = $_POST['classification'];
       $admissiondate = $_POST['admissiondate'];
 
-      $updatepatient = \DB::SELECT("call sp_updatepatient(?,?,?,?,?,?,?,?,?,?,?,?
-        ,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",[$patientfname, $patientmname, $patientlname, $birthday,$gender,$age, $remarks, $address, $city,$country,$contact, $email, $sss_gsis, $philhealth, $hmo,$ward,$emcontactname,$emcontactnumber,$emrelationship, $patientid,$civil_status,$bed_no, $classification, $covidcase, $admissionstatus, $admissiondate]);
+      $updatepatient = \DB::SELECT("call sp_updatepatientinfo(?,?,?,?,?,?,?,?,?,?,?,?
+        ,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",[$patientfname, $patientmname, $patientlname, $birthday,$gender,$age, $remarks, $address, $city,$country,$contact, $email, $sss_gsis, $philhealth, $hmo,$ward,$emcontactname,$emcontactnumber,$emrelationship, $patientid,$civil_status,$bed_no, $classification, $covidcase, $admissionstatus, $admissiondate]);
 
     $output = json_encode(array('updatepatient_report' => $updatepatient ));
     echo $output;
