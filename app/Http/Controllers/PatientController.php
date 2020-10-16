@@ -50,7 +50,7 @@ echo "]";
       $sss_gsis = $_POST['sss_gsis'];
       $philhealth = $_POST['philhealth'];
       $hmo = $_POST['hmo'];
-      $admission = $_POST['admission'];
+//      $admission = $_POST['admission'];
       $ward = $_POST['ward'];
       $emcontactname = $_POST['emcontactname'];
       $emcontactnumber = $_POST['emcontactnumber'];
@@ -234,7 +234,7 @@ public function updatePatient(){
     }
 
     public function patientQue(){
-          $patient_que = \DB::SELECT("SELECT concat('Patient/',rpi_patientid) reference FROM `r_patient_info` where rpi_patientstatus = 1");
+          $patient_que = \DB::SELECT("SELECT concat('Patient/',rpi_patientid) reference FROM `r_patient_info` where 1 = (select rps_admission from r_patient_status where rps_pid=rpi_patientid)");
 $que = array(
     'id' => 'patient-queue',
     'type' => 'person',
@@ -277,6 +277,9 @@ echo json_encode($array);
 public function getPatientFullDetails($patientid){
 
 $patientdata = \DB::SELECT("select *,
+(select rps_class from r_patient_status where rps_pid=rpi_patientid) 'rps_class',
+(select rps_case from r_patient_status where rps_pid=rpi_patientid) 'rps_case',
+(select rps_admission from r_patient_status where rps_pid=rpi_patientid) 'rps_admission',
 (select rps_name from r_patient_status_type where rps_id = (select rps_class from r_patient_status where rps_pid=rpi_patientid)) classification,
 (select rps_name from r_patient_status_type where rps_id = (select rps_case from r_patient_status where rps_pid=rpi_patientid)) 'Covid Case',
 (select rps_name from r_patient_status_type where rps_id = (select rps_admission from r_patient_status where rps_pid=rpi_patientid)) 'Admission Status'  from r_patient_info where rpi_patientid = ?",[$patientid]);
