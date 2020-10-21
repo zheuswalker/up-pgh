@@ -21,7 +21,7 @@ class ObservationController extends BaseController
       $id = $decodedobservation->id;      
       $subject = $decodedobservation->subject->reference;
       $effective = $decodedobservation->effectiveDateTime;
-      $effective = date('Y-m-d h:i:s', strtotime($effective));
+      $effective = date('Y-m-d H:i:s', strtotime($effective));
       $status = $decodedobservation->status;
       $error;
       $errorsystem;
