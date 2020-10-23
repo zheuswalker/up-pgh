@@ -44,7 +44,8 @@ class VerifyCsrfToken extends Middleware
     'requestBP',
     'getOnDemandBP',
     'sendrequestBP',
-    'getRequestBPValue'
+    'getRequestBPValue',
+    'checkpassword'
 
     ];
 }

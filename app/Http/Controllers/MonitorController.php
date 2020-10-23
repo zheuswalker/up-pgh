@@ -14,7 +14,12 @@ class MonitorController extends BaseController
 {
 
 
-
+ public function checkPassword(Request $request){
+ $password = $_POST['password'];
+ $checkpassword = \DB::SELECT("call sp_checkpassword(?)",[$password]);
+ $checkpassword = json_encode(array('checkpassword' => $checkpassword));
+ echo $checkpassword;
+ }
 public function add_patient_toMonitor(Request $request){
 
  	$monitorid = $_POST['monitorid'];
