@@ -195,7 +195,7 @@ public function saveNotif($addpatient_observation, $subject, $code, $value){
  // try{
   $patientid = substr($patientid, strpos($patientid,"/")+1, strlen($patientid));
      $patient_timeframe = \DB::SELECT("call sp_getpatienttimeframe(?)",[$patientid]);
-  $period;
+  $period = 0;
   if(count($patient_timeframe) > 0) {
             foreach($patient_timeframe as $row) { 
               $period = $row->rpc_time_frame;
@@ -241,8 +241,9 @@ echo json_encode($myObj);
     $obscode = $_POST['obscode'];
     $spec_date = $_POST['spec_date'];
     $patientid = $_POST['patientid'];
+    $utc_offset = $_POST['utc_offset'];
     $patientid = "Patient/".$patientid;
-    $PatientRangedObservation = \DB::SELECT("call  sp_getPatientObservationRange(?,?,?)",[$obscode,$spec_date,$patientid]);
+    $PatientRangedObservation = \DB::SELECT("call  sp_getPatientObservationRange(?,?,?,?)",[$obscode,$spec_date,$patientid,$utc_offset]);
       $PatientRangedObservation = json_encode(array('PatientRangedObservation' => $PatientRangedObservation ));
       echo $PatientRangedObservation;
 
